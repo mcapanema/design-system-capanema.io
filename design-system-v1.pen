@@ -5179,7 +5179,8 @@
                   "content": "The semantic layer between raw Foundation values and the interface. Tokens assign meaning — Text / Primary, Surface / Elevated, Action / Primary — so components consume intent, never hex codes. This abstraction is what lets the system evolve without rewrites.",
                   "lineHeight": 1.6,
                   "fontFamily": "$font-sans",
-                  "fontSize": 19
+                  "fontSize": 19,
+                  "fontWeight": "normal"
                 }
               ]
             },
@@ -5610,7 +5611,8 @@
                       "width": "fill_container",
                       "content": "Building technology organizations that scale.",
                       "fontFamily": "$font-sans",
-                      "fontSize": 18
+                      "fontSize": 18,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -5692,7 +5694,8 @@
                       "width": "fill_container",
                       "content": "Leadership philosophy and operating principles",
                       "fontFamily": "$font-sans",
-                      "fontSize": 16
+                      "fontSize": 16,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -5774,7 +5777,8 @@
                       "width": "fill_container",
                       "content": "Updated June 2026 · 8 min read",
                       "fontFamily": "$font-sans",
-                      "fontSize": 14
+                      "fontSize": 14,
+                      "fontWeight": "normal"
                     }
                   ]
                 },
@@ -9658,7 +9662,8 @@
                   "content": "Production-ready building blocks assembled entirely from semantic Tokens. Each component is minimal, accessible, and built to support content — never compete with it. These are the parts from which every page of capanema.io is composed.",
                   "lineHeight": 1.6,
                   "fontFamily": "$font-sans",
-                  "fontSize": 19
+                  "fontSize": 19,
+                  "fontWeight": "normal"
                 }
               ]
             },
@@ -18951,7 +18956,8 @@
                   "content": "Reusable page-level compositions assembled from Components — heroes, case-study sections, writing layouts, resume blocks, and complete page blueprints. The final layer: a blueprint for building every page of capanema.io.",
                   "lineHeight": 1.6,
                   "fontFamily": "$font-sans",
-                  "fontSize": 19
+                  "fontSize": 19,
+                  "fontWeight": "normal"
                 }
               ]
             },
@@ -49908,82 +49914,130 @@
   "variables": {
     "--sidebar": {
       "type": "color",
+      "value": "$surface-secondary"
+    },
+    "surface-secondary": {
+      "type": "color",
       "value": [
         {
-          "value": "#E7E8E5"
+          "value": "$neutral-50",
+          "theme": {
+            "Mode": "Light"
+          }
         },
         {
-          "value": "#18181b",
+          "value": "$dark-800",
           "theme": {
             "Mode": "Dark"
           }
         }
       ]
+    },
+    "neutral-50": {
+      "type": "color",
+      "value": "#F8FAFC"
+    },
+    "dark-800": {
+      "type": "color",
+      "value": "#111827"
     },
     "--sidebar-foreground": {
       "type": "color",
+      "value": "$text-secondary"
+    },
+    "text-secondary": {
+      "type": "color",
       "value": [
         {
-          "value": "#666666"
+          "value": "$neutral-600",
+          "theme": {
+            "Mode": "Light"
+          }
         },
         {
-          "value": "#fafafa",
+          "value": "$neutral-300",
           "theme": {
             "Mode": "Dark"
           }
         }
       ]
+    },
+    "neutral-600": {
+      "type": "color",
+      "value": "#475569"
+    },
+    "neutral-300": {
+      "type": "color",
+      "value": "#CBD5E1"
     },
     "--sidebar-primary": {
       "type": "color",
-      "value": [
-        {
-          "value": "#18181b"
-        },
-        {
-          "value": "#18181b",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
+      "value": "$action-primary"
+    },
+    "action-primary": {
+      "type": "color",
+      "value": "$accent-500"
+    },
+    "accent-500": {
+      "type": "color",
+      "value": "#2563EB"
     },
     "--sidebar-primary-foreground": {
       "type": "color",
-      "value": [
-        {
-          "value": "#fafafa"
-        },
-        {
-          "value": "#fafafa",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
+      "value": "$text-on-accent"
+    },
+    "text-on-accent": {
+      "type": "color",
+      "value": "$neutral-0"
+    },
+    "neutral-0": {
+      "type": "color",
+      "value": "#FFFFFF"
     },
     "--sidebar-border": {
       "type": "color",
+      "value": "$border-subtle"
+    },
+    "border-subtle": {
+      "type": "color",
       "value": [
         {
-          "value": "#CBCCC9"
+          "value": "$neutral-200",
+          "theme": {
+            "Mode": "Light"
+          }
         },
         {
-          "value": "#ffffff1a",
+          "value": "$neutral-800",
           "theme": {
             "Mode": "Dark"
           }
         }
       ]
     },
+    "neutral-200": {
+      "type": "color",
+      "value": "#E2E8F0"
+    },
+    "neutral-800": {
+      "type": "color",
+      "value": "#1E293B"
+    },
     "--sidebar-accent": {
+      "type": "color",
+      "value": "$surface-tertiary"
+    },
+    "surface-tertiary": {
       "type": "color",
       "value": [
         {
-          "value": "#CBCCC9"
+          "value": "$neutral-200",
+          "theme": {
+            "Mode": "Light"
+          }
         },
         {
-          "value": "#2a2a30",
+          "value": "$neutral-800",
           "theme": {
             "Mode": "Dark"
           }
@@ -49992,236 +50046,192 @@
     },
     "--sidebar-accent-foreground": {
       "type": "color",
+      "value": "$text-primary"
+    },
+    "text-primary": {
+      "type": "color",
       "value": [
         {
-          "value": "#18181b"
+          "value": "$primary-900",
+          "theme": {
+            "Mode": "Light"
+          }
         },
         {
-          "value": "#fafafa",
+          "value": "$neutral-50",
           "theme": {
             "Mode": "Dark"
           }
         }
       ]
+    },
+    "primary-900": {
+      "type": "color",
+      "value": "#0F172A"
     },
     "--sidebar-ring": {
       "type": "color",
+      "value": "$focus-ring"
+    },
+    "focus-ring": {
+      "type": "color",
       "value": [
         {
-          "value": "#71717a"
+          "value": "$accent-500",
+          "theme": {
+            "Mode": "Light"
+          }
         },
         {
-          "value": "#71717a",
+          "value": "$accent-400",
           "theme": {
             "Mode": "Dark"
           }
         }
       ]
+    },
+    "accent-400": {
+      "type": "color",
+      "value": "#3B82F6"
     },
     "--background": {
       "type": "color",
+      "value": "$surface-primary"
+    },
+    "surface-primary": {
+      "type": "color",
       "value": [
         {
-          "value": "#F2F3F0"
+          "value": "$neutral-0",
+          "theme": {
+            "Mode": "Light"
+          }
         },
         {
-          "value": "#111111",
+          "value": "$dark-900",
           "theme": {
             "Mode": "Dark"
           }
         }
       ]
+    },
+    "dark-900": {
+      "type": "color",
+      "value": "#0B1020"
     },
     "--foreground": {
       "type": "color",
-      "value": [
-        {
-          "value": "#111111"
-        },
-        {
-          "value": "#FFFFFF",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
+      "value": "$text-primary"
     },
     "--card": {
       "type": "color",
+      "value": "$surface-elevated"
+    },
+    "surface-elevated": {
+      "type": "color",
       "value": [
         {
-          "value": "#FFFFFF"
+          "value": "$neutral-0",
+          "theme": {
+            "Mode": "Light"
+          }
         },
         {
-          "value": "#1A1A1A",
+          "value": "$dark-700",
           "theme": {
             "Mode": "Dark"
           }
         }
       ]
+    },
+    "dark-700": {
+      "type": "color",
+      "value": "#172033"
     },
     "--card-foreground": {
       "type": "color",
-      "value": [
-        {
-          "value": "#111111"
-        },
-        {
-          "value": "#FFFFFF",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
+      "value": "$text-primary"
     },
     "--popover": {
       "type": "color",
-      "value": [
-        {
-          "value": "#FFFFFF"
-        },
-        {
-          "value": "#1A1A1A",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
+      "value": "$surface-elevated"
     },
     "--popover-foreground": {
       "type": "color",
-      "value": [
-        {
-          "value": "#111111"
-        },
-        {
-          "value": "#FFFFFF",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
+      "value": "$text-primary"
     },
     "--primary": {
       "type": "color",
-      "value": [
-        {
-          "value": "#FF8400"
-        },
-        {
-          "value": "#FF8400",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
+      "value": "$accent-500"
     },
     "--primary-foreground": {
       "type": "color",
-      "value": [
-        {
-          "value": "#111111"
-        },
-        {
-          "value": "#111111",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
+      "value": "$text-on-accent"
     },
     "--secondary": {
       "type": "color",
-      "value": [
-        {
-          "value": "#E7E8E5"
-        },
-        {
-          "value": "#2E2E2E",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
+      "value": "$surface-secondary"
     },
     "--secondary-foreground": {
       "type": "color",
-      "value": [
-        {
-          "value": "#111111"
-        },
-        {
-          "value": "#FFFFFF",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
+      "value": "$text-primary"
     },
     "--muted": {
       "type": "color",
-      "value": [
-        {
-          "value": "#F2F3F0"
-        },
-        {
-          "value": "#2E2E2E",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
+      "value": "$surface-secondary"
     },
     "--muted-foreground": {
       "type": "color",
+      "value": "$text-muted"
+    },
+    "text-muted": {
+      "type": "color",
       "value": [
         {
-          "value": "#666666"
+          "value": "$neutral-500",
+          "theme": {
+            "Mode": "Light"
+          }
         },
         {
-          "value": "#B8B9B6",
+          "value": "$neutral-400",
           "theme": {
             "Mode": "Dark"
           }
         }
       ]
+    },
+    "neutral-500": {
+      "type": "color",
+      "value": "#64748B"
+    },
+    "neutral-400": {
+      "type": "color",
+      "value": "#94A3B8"
     },
     "--accent": {
       "type": "color",
-      "value": [
-        {
-          "value": "#F2F3F0"
-        },
-        {
-          "value": "#111111",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
+      "value": "$accent-500"
     },
     "--accent-foreground": {
       "type": "color",
-      "value": [
-        {
-          "value": "#111111"
-        },
-        {
-          "value": "#F2F3F0",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
+      "value": "$text-on-accent"
     },
     "--destructive": {
       "type": "color",
+      "value": "$status-error-fg"
+    },
+    "status-error-fg": {
+      "type": "color",
       "value": [
         {
-          "value": "#D93C15"
+          "value": "#B91C1C",
+          "theme": {
+            "Mode": "Light"
+          }
         },
         {
-          "value": "#FF5C33",
+          "value": "#F87171",
           "theme": {
             "Mode": "Dark"
           }
@@ -50230,53 +50240,48 @@
     },
     "--border": {
       "type": "color",
-      "value": [
-        {
-          "value": "#CBCCC9"
-        },
-        {
-          "value": "#2E2E2E",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
+      "value": "$border-subtle"
     },
     "--input": {
       "type": "color",
+      "value": "$border-default"
+    },
+    "border-default": {
+      "type": "color",
       "value": [
         {
-          "value": "#CBCCC9"
+          "value": "$neutral-300",
+          "theme": {
+            "Mode": "Light"
+          }
         },
         {
-          "value": "#2E2E2E",
+          "value": "$neutral-700",
           "theme": {
             "Mode": "Dark"
           }
         }
       ]
+    },
+    "neutral-700": {
+      "type": "color",
+      "value": "#334155"
     },
     "--ring": {
       "type": "color",
-      "value": [
-        {
-          "value": "#666666"
-        },
-        {
-          "value": "#666666",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
+      "value": "$focus-ring"
     },
     "--white": {
       "type": "color",
-      "value": "#FFFFFF"
+      "value": "$neutral-0"
     },
     "--black": {
       "type": "color",
-      "value": "#000000"
+      "value": "$neutral-900"
+    },
+    "neutral-900": {
+      "type": "color",
+      "value": "#0F172A"
     },
     "--font-primary": {
       "type": "string",
@@ -50284,7 +50289,7 @@
     },
     "--font-secondary": {
       "type": "string",
-      "value": "Geist"
+      "value": "Inter"
     },
     "--radius-none": {
       "type": "number",
@@ -50296,12 +50301,19 @@
     },
     "--color-success": {
       "type": "color",
+      "value": "$status-success-surface"
+    },
+    "status-success-surface": {
+      "type": "color",
       "value": [
         {
-          "value": "#DFE6E1"
+          "value": "#F0FDF4",
+          "theme": {
+            "Mode": "Light"
+          }
         },
         {
-          "value": "#222924",
+          "value": "#11271A",
           "theme": {
             "Mode": "Dark"
           }
@@ -50310,12 +50322,19 @@
     },
     "--color-success-foreground": {
       "type": "color",
+      "value": "$status-success-fg"
+    },
+    "status-success-fg": {
+      "type": "color",
       "value": [
         {
-          "value": "#004D1A"
+          "value": "#15803D",
+          "theme": {
+            "Mode": "Light"
+          }
         },
         {
-          "value": "#B6FFCE",
+          "value": "#4ADE80",
           "theme": {
             "Mode": "Dark"
           }
@@ -50324,12 +50343,19 @@
     },
     "--color-warning": {
       "type": "color",
+      "value": "$status-warning-surface"
+    },
+    "status-warning-surface": {
+      "type": "color",
       "value": [
         {
-          "value": "#E9E3D8"
+          "value": "#FFFBEB",
+          "theme": {
+            "Mode": "Light"
+          }
         },
         {
-          "value": "#291C0F",
+          "value": "#2A2009",
           "theme": {
             "Mode": "Dark"
           }
@@ -50338,12 +50364,19 @@
     },
     "--color-warning-foreground": {
       "type": "color",
+      "value": "$status-warning-fg"
+    },
+    "status-warning-fg": {
+      "type": "color",
       "value": [
         {
-          "value": "#804200"
+          "value": "#B45309",
+          "theme": {
+            "Mode": "Light"
+          }
         },
         {
-          "value": "#FF8400",
+          "value": "#FBBF24",
           "theme": {
             "Mode": "Dark"
           }
@@ -50352,12 +50385,19 @@
     },
     "--color-error": {
       "type": "color",
+      "value": "$status-error-surface"
+    },
+    "status-error-surface": {
+      "type": "color",
       "value": [
         {
-          "value": "#E5DCDA"
+          "value": "#FEF2F2",
+          "theme": {
+            "Mode": "Light"
+          }
         },
         {
-          "value": "#24100B",
+          "value": "#2A1414",
           "theme": {
             "Mode": "Dark"
           }
@@ -50366,26 +50406,23 @@
     },
     "--color-error-foreground": {
       "type": "color",
-      "value": [
-        {
-          "value": "#8C1C00"
-        },
-        {
-          "value": "#FF5C33",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
+      "value": "$status-error-fg"
     },
     "--color-info": {
       "type": "color",
+      "value": "$status-info-surface"
+    },
+    "status-info-surface": {
+      "type": "color",
       "value": [
         {
-          "value": "#DFDFE6"
+          "value": "#EFF6FF",
+          "theme": {
+            "Mode": "Light"
+          }
         },
         {
-          "value": "#222229",
+          "value": "$dark-700",
           "theme": {
             "Mode": "Dark"
           }
@@ -50394,25 +50431,32 @@
     },
     "--color-info-foreground": {
       "type": "color",
+      "value": "$status-info-fg"
+    },
+    "status-info-fg": {
+      "type": "color",
       "value": [
         {
-          "value": "#000066"
+          "value": "$accent-500",
+          "theme": {
+            "Mode": "Light"
+          }
         },
         {
-          "value": "#B2B2FF",
+          "value": "$accent-300",
           "theme": {
             "Mode": "Dark"
           }
         }
       ]
     },
+    "accent-300": {
+      "type": "color",
+      "value": "#60A5FA"
+    },
     "--radius-m": {
       "type": "number",
       "value": 16
-    },
-    "accent-500": {
-      "type": "color",
-      "value": "#2563EB"
     },
     "border": {
       "type": "color",
@@ -50456,53 +50500,9 @@
       "type": "string",
       "value": "Inter"
     },
-    "neutral-0": {
-      "type": "color",
-      "value": "#FFFFFF"
-    },
-    "neutral-200": {
-      "type": "color",
-      "value": "#E2E8F0"
-    },
-    "neutral-300": {
-      "type": "color",
-      "value": "#CBD5E1"
-    },
-    "neutral-400": {
-      "type": "color",
-      "value": "#94A3B8"
-    },
-    "neutral-50": {
-      "type": "color",
-      "value": "#F8FAFC"
-    },
-    "neutral-500": {
-      "type": "color",
-      "value": "#64748B"
-    },
-    "neutral-600": {
-      "type": "color",
-      "value": "#475569"
-    },
-    "neutral-700": {
-      "type": "color",
-      "value": "#334155"
-    },
-    "neutral-800": {
-      "type": "color",
-      "value": "#1E293B"
-    },
-    "neutral-900": {
-      "type": "color",
-      "value": "#0F172A"
-    },
     "primary-700": {
       "type": "color",
       "value": "#334155"
-    },
-    "primary-900": {
-      "type": "color",
-      "value": "#0F172A"
     },
     "space-0": {
       "type": "number",
@@ -50607,60 +50607,9 @@
         }
       ]
     },
-    "text-muted": {
-      "type": "color",
-      "value": [
-        {
-          "value": "$neutral-500",
-          "theme": {
-            "Mode": "Light"
-          }
-        },
-        {
-          "value": "$neutral-400",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
-    },
     "text-on-dark": {
       "type": "color",
       "value": "$neutral-50"
-    },
-    "text-primary": {
-      "type": "color",
-      "value": [
-        {
-          "value": "$primary-900",
-          "theme": {
-            "Mode": "Light"
-          }
-        },
-        {
-          "value": "$neutral-50",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
-    },
-    "text-secondary": {
-      "type": "color",
-      "value": [
-        {
-          "value": "$neutral-600",
-          "theme": {
-            "Mode": "Light"
-          }
-        },
-        {
-          "value": "$neutral-300",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
     },
     "accent-600": {
       "type": "color",
@@ -50669,10 +50618,6 @@
     "accent-700": {
       "type": "color",
       "value": "#1E40AF"
-    },
-    "action-primary": {
-      "type": "color",
-      "value": "$accent-500"
     },
     "action-primary-hover": {
       "type": "color",
@@ -50759,40 +50704,6 @@
         }
       ]
     },
-    "border-default": {
-      "type": "color",
-      "value": [
-        {
-          "value": "$neutral-300",
-          "theme": {
-            "Mode": "Light"
-          }
-        },
-        {
-          "value": "$neutral-700",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
-    },
-    "border-subtle": {
-      "type": "color",
-      "value": [
-        {
-          "value": "$neutral-200",
-          "theme": {
-            "Mode": "Light"
-          }
-        },
-        {
-          "value": "$neutral-800",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
-    },
     "disabled": {
       "type": "color",
       "value": [
@@ -50813,23 +50724,6 @@
     "disabled-text": {
       "type": "color",
       "value": "$neutral-500"
-    },
-    "focus-ring": {
-      "type": "color",
-      "value": [
-        {
-          "value": "$accent-500",
-          "theme": {
-            "Mode": "Light"
-          }
-        },
-        {
-          "value": "$accent-400",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
     },
     "link": {
       "type": "color",
@@ -50865,6 +50759,10 @@
         }
       ]
     },
+    "accent-200": {
+      "type": "color",
+      "value": "#93C5FD"
+    },
     "surface-accent": {
       "type": "color",
       "value": "$accent-500"
@@ -50880,74 +50778,6 @@
         },
         {
           "value": "$dark-700",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
-    },
-    "surface-elevated": {
-      "type": "color",
-      "value": [
-        {
-          "value": "$neutral-0",
-          "theme": {
-            "Mode": "Light"
-          }
-        },
-        {
-          "value": "$dark-700",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
-    },
-    "surface-primary": {
-      "type": "color",
-      "value": [
-        {
-          "value": "$neutral-0",
-          "theme": {
-            "Mode": "Light"
-          }
-        },
-        {
-          "value": "$dark-900",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
-    },
-    "surface-secondary": {
-      "type": "color",
-      "value": [
-        {
-          "value": "$neutral-50",
-          "theme": {
-            "Mode": "Light"
-          }
-        },
-        {
-          "value": "$dark-800",
-          "theme": {
-            "Mode": "Dark"
-          }
-        }
-      ]
-    },
-    "surface-tertiary": {
-      "type": "color",
-      "value": [
-        {
-          "value": "$neutral-200",
-          "theme": {
-            "Mode": "Light"
-          }
-        },
-        {
-          "value": "$neutral-800",
           "theme": {
             "Mode": "Dark"
           }
@@ -51022,30 +50852,6 @@
         }
       ]
     },
-    "accent-200": {
-      "type": "color",
-      "value": "#93C5FD"
-    },
-    "accent-300": {
-      "type": "color",
-      "value": "#60A5FA"
-    },
-    "accent-400": {
-      "type": "color",
-      "value": "#3B82F6"
-    },
-    "dark-700": {
-      "type": "color",
-      "value": "#172033"
-    },
-    "dark-800": {
-      "type": "color",
-      "value": "#111827"
-    },
-    "dark-900": {
-      "type": "color",
-      "value": "#0B1020"
-    },
     "shadow-1a": {
       "type": "color",
       "value": [
@@ -51084,13 +50890,46 @@
       "type": "color",
       "value": "$neutral-800"
     },
-    "text-on-accent": {
-      "type": "color",
-      "value": "$neutral-0"
-    },
     "text-on-dark-muted": {
       "type": "color",
       "value": "$neutral-400"
+    },
+    "leading-normal": {
+      "type": "number",
+      "value": 1.6
+    },
+    "leading-prose": {
+      "type": "number",
+      "value": 1.7
+    },
+    "leading-snug": {
+      "type": "number",
+      "value": 1.3
+    },
+    "leading-tight": {
+      "type": "number",
+      "value": 1.1
+    },
+    "measure-prose": {
+      "type": "number",
+      "value": 680
+    },
+    "text-prose": {
+      "type": "color",
+      "value": [
+        {
+          "value": "$neutral-800",
+          "theme": {
+            "Mode": "Light"
+          }
+        },
+        {
+          "value": "$neutral-200",
+          "theme": {
+            "Mode": "Dark"
+          }
+        }
+      ]
     }
   }
 }

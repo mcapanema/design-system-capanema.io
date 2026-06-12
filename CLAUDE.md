@@ -16,10 +16,19 @@ think, and what measurable outcomes they delivered. Primary content: case studie
 writing, resume, achievements.
 
 **The system is built in Pencil** (the `.pen` design tool, accessed via the `pencil` MCP
-server), **not in code**. v1.1 is complete — all four layers exist **plus a dual-theme
-architecture (Light / Dark) on the `Mode` theme axis, documented on board `06 · Themes`**.
-Any further work is refinement, a new board, or implementing the site in code from these
-blueprints.
+server), **not in code**. **v2.0 is complete**, and v1.1 and v2.0 now live in **separate
+files** (`design-system-v1.pen`, `design-system-v2.pen` — see §3). v2.0 refined the system
+within its DNA: typography raised to publication grade, a long-form reading layer, status +
+prose tokens, a rebuilt case-study card and discovery model, an impact-first resume, new
+long-form/wayfinding components, and the orphaned shadcn token set neutralized. The dual-theme
+(Light / Dark, `Mode` axis) carries through v2 with zero component overrides. See board
+`05 · Design Review & Changelog` (in the v2 file) for the full audit and rationale. Any further
+work is a new board (e.g. `07` motion/responsive/iconography) or implementing the site in code.
+
+> **Persistence note:** Pencil MCP edits a **live in-editor document**; changes are not written
+> to the `.pen` on disk until the file is **saved in Pencil**, and the MCP only ever sees the
+> single open document (the `filePath` argument is ignored). Save before committing the binary
+> to git, or git will not capture the work.
 
 ---
 
@@ -38,9 +47,19 @@ clarity, operational excellence. Closer to a premium annual report than a market
 
 ---
 
-## 3. The file & how to access it
+## 3. The files & how to access them
 
-- **File:** `design-system.pen` (Pencil MCP `filePath` argument — actual filename on disk).
+- **Two files** (split for clean version separation):
+  - **`design-system-v2.pen`** — the **v2.0** system (boards `01–04 · v2` + `05 · Design
+    Review & Changelog`). This is the working file for current/new work.
+  - **`design-system-v1.pen`** — the **frozen v1.1** system (boards `01–04` + `06 · Themes`),
+    kept for reference/comparison. Do not edit.
+  - The old combined `design-system.pen` was retired (still in git history at commit `a7a241a`).
+- **Open the file you intend to work on in Pencil first.** Critical limitation learned: the
+  Pencil MCP is bound to the **single active editor** — the `filePath` argument is **ignored**
+  for both reads and writes, and changes only reach disk when **you Save in Pencil**. So you
+  cannot target a non-open file by path, and you cannot create/split files from the MCP; those
+  are GUI actions. Confirm which file is active with `get_editor_state` before editing.
 - `.pen` files are **encrypted** — only ever access them through `pencil` MCP tools. Never
   `Read`/`Grep`/`Edit` a `.pen` file directly.
 - **Always** call `get_editor_state(include_schema: true)` at the start of a session if the
@@ -54,12 +73,15 @@ clarity, operational excellence. Closer to a premium annual report than a market
 
 ---
 
-## 4. Architecture — four boards
+## 4. Architecture — boards
 
-Each board is a top-level frame in the document, laid out left→right via `FindEmptySpace`.
-All share the same anatomy: a dark **Cover**, numbered content sections (each with a section
-header `## NN Title`, a description, showcase, and an engineering documentation panel), and a
-**Governance** section showing the chain with the current layer marked `HERE`.
+Each board is a top-level frame, laid out left→right via `FindEmptySpace`. All share the same
+anatomy: a dark **Cover**, numbered content sections (each with a section header `## NN Title`,
+a description, showcase, and an engineering documentation panel), and a **Governance** section
+showing the chain with the current layer marked `HERE`. **Frame IDs are unique per file** —
+v1.1 IDs below live in `design-system-v1.pen`; v2 IDs live in `design-system-v2.pen`.
+
+**v1.1 — frozen, in `design-system-v1.pen`** (do not edit):
 
 | Board | Frame ID | Contents |
 |-------|----------|----------|
@@ -69,8 +91,28 @@ header `## NN Title`, a description, showcase, and an engineering documentation 
 | `04 · Patterns` | `jvEua` | Hero, Case Study, Writing, Resume, Contact patterns; Page Layout blueprints; Content Guidelines; Governance |
 | `06 · Themes` | `mO19J` | Theme Philosophy, Light Theme, Dark Theme, Theme Tokens (mode map), Components & Patterns in both modes, Accessibility audit, Theme Governance |
 
-Reusable component **masters** live in the `⟐ Component Masters` library frame (id `VX0oF`,
-far right of the Components board).
+**v2.0 — current work, in `design-system-v2.pen`:**
+
+| Board | Frame ID | Contents |
+|-------|----------|----------|
+| `01 · Foundation · v2` | `hmZsC` | Color, Typography (scale + line-heights + tracking + prose specimen), Spacing & Rhythm, Elevation, Governance |
+| `02 · Tokens · v2` | `IF92z` | Text / Surface / Border / Action / Status / Prose token tables (Light+Dark swatches), Governance & Usage |
+| `03 · Components · v2` | `fEH2K` | Controls, Data Display, Discovery Cards, Long-form, Wayfinding & Credibility, Governance |
+| `04 · Patterns · v2` | `M7VtG` | Hero, Case Study Discovery, Case Study Detail, Writing, Resume, Contact, Page Layout Blueprints, Governance & Content |
+| `05 · Design Review & Changelog` | `ch8VD` | Executive Summary, Major Findings, What/Why Changed, Before↔After, Principles, Future |
+
+Reusable component **masters**: v1.1 uses `⟐ Component Masters` (id `VX0oF`) — present in the
+v1 file, and also kept in the **v2 file** solely because the Changelog's Before↔After instances
+the old Case Study Card `SG5xZ`. **v2 masters** live in `⟐ Component Masters · v2` (id `J6aQ6v`,
+v2 file only) with fresh IDs:
+Button `WuNSb` (Label `oDdYq`, Icon `OngS2`) · Icon Button `GPwQ9` · Nav Item `M8kBKi` (Label `OF1pw`) ·
+Tag `UsMEV` (Dot `Z6RdKt`, Label `v9dYgV`) · Metric `N323Wn` (Value `HF1zg`, Label `WHhXN`) ·
+Metric Card `xAD0x` (Eyebrow `YGXVS`, Value `v4Q8dH`, Label `dTkA7`) · Highlight Card `LA0Vr` ·
+Timeline Item `afs6z` (Date `hnFRC`, Title `EK5vT`, Desc `kGlXz`, Outcome `ewLYz`; last item set `strokeWidth:0`) ·
+Case Study Card `BtcCZ` (Category `auz5R`, Title `In95P`, Summary `p3IzlV`) · Article Card `WGvhC`
+(Category `U3qGMx`, Date `SMe7N`, Title `vdP6J`, Excerpt `UEIi6`, ReadTime `L5b01`) ·
+Pullquote `oV5N6` (Quote `giEAq`) · Callout `WlpMe` (Icon `ZYRK5`, Title `VEi4E`, Text `srHuJ`; variants swap fill+icon to `status-*`) ·
+ToC Rail `Br6Rv` · Breadcrumb `ahkiC` · Credibility Strip `xTEMM` · Footer `JkvM5`.
 
 **The governing principle (enforced by the system, not just documented):**
 `Foundation → Theme Tokens → Components → Patterns → Pages`. Each layer references only the one
@@ -86,6 +128,17 @@ Reference any variable from a property with a `$` prefix (e.g. `fill: "$text-pri
 `gap: "$space-5"`). Variable **names** must not start with `$`. Semantic tokens are defined as
 **aliases** that point at Foundation primitives — this is the abstraction layer. **When building
 anything new, consume the semantic tokens below, not the raw Foundation primitives.**
+
+> **v2.0 token additions (themed Light/Dark unless noted):** **Status** — `status-success-fg`/
+> `-surface`, `status-error-fg`/`-surface`, `status-warning-fg`/`-surface`, `status-info-fg`/
+> `-surface` (muted, functional feedback only — never brand). **Prose/reading** — `text-prose`
+> (softened body: neutral-800 / neutral-200), `measure-prose` (680), `leading-prose` (1.7),
+> `leading-tight`/`-snug`/`-normal`. **Deprecated:** the `--`-prefixed shadcn set
+> (`--primary`, `--background`, `--font-secondary`, `--color-*`, `--sidebar-*`, …) was a stray
+> second brand; it is now **neutralized** — each re-pointed to a canonical slate+blue alias.
+> Do not reference any `--`-prefixed token in new work. **Gotcha confirmed:** a `fill:"$token"`
+> set *before* that token exists is silently stored as `#000000` — define tokens first, then
+> reference. `letterSpacing` is in **px** (negative on display).
 
 ### Foundation primitives (don't reference directly in components/patterns; static, never themed)
 - Brand: `primary-900` `#0F172A`, `primary-700` `#334155`
@@ -229,9 +282,13 @@ timeline must override `strokeWidth:0` so the line doesn't dangle.
 
 ## 11. Where to go next
 
-The four design layers plus the dual-theme layer (board `06 · Themes`) are done. Likely next steps:
-- A `05` board (e.g. responsive/mobile specs, motion, or iconography), **or**
-- **Implement capanema.io in code** from these blueprints. Default stack assumption:
+**v2.0 is done** — the parallel Foundation/Tokens/Components/Patterns boards plus the
+`05 · Design Review & Changelog` board, all within the existing DNA, with v1.1 frozen for
+comparison and dual-theme carried through. Likely next steps:
+- A **`07` board** (motion, responsive/mobile specs, or iconography — the one layer v2 didn't
+  add), **or**
+- **Implement capanema.io in code** from the **v2** blueprints (board `04 · Patterns · v2`,
+  `M7VtG`). Default stack assumption:
   Next.js (App Router) on Vercel, Inter + JetBrains Mono, Tailwind with the tokens above mapped
   to CSS variables. Use `get_variables` to export the exact token values (both Mode resolutions),
   follow the page blueprints in board 04 for section order and content guidelines for copy, and
