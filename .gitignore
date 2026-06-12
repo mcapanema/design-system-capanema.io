@@ -8,3 +8,4 @@
 .env.development.local
 
 # Ignore .agents
+.agents/rules/claude-mem-context.md
