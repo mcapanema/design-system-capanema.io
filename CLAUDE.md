@@ -16,18 +16,19 @@ think, and what measurable outcomes they delivered. Primary content: case studie
 writing, resume, achievements.
 
 **The system is built in Pencil** (the `.pen` design tool, accessed via the `pencil` MCP
-server), **not in code**. **v2.0 is complete.** It is a *parallel board set* built to the right
-of the frozen v1.1 boards (which are preserved untouched for comparison). v2.0 refined the
-system within its DNA: typography raised to publication grade, a long-form reading layer,
-status + prose tokens, a rebuilt case-study card and discovery model, an impact-first resume,
-new long-form/wayfinding components, and the orphaned shadcn token set neutralized. The
-dual-theme (Light / Dark, `Mode` axis) carries through v2 with zero component overrides.
-See board `05 · Design Review & Changelog` for the full audit and rationale. Any further work
-is a new board (e.g. `07` motion/responsive/iconography) or implementing the site in code.
+server), **not in code**. **v2.0 is complete**, and v1.1 and v2.0 now live in **separate
+files** (`design-system-v1.pen`, `design-system-v2.pen` — see §3). v2.0 refined the system
+within its DNA: typography raised to publication grade, a long-form reading layer, status +
+prose tokens, a rebuilt case-study card and discovery model, an impact-first resume, new
+long-form/wayfinding components, and the orphaned shadcn token set neutralized. The dual-theme
+(Light / Dark, `Mode` axis) carries through v2 with zero component overrides. See board
+`05 · Design Review & Changelog` (in the v2 file) for the full audit and rationale. Any further
+work is a new board (e.g. `07` motion/responsive/iconography) or implementing the site in code.
 
 > **Persistence note:** Pencil MCP edits a **live in-editor document**; changes are not written
-> to `design-system.pen` on disk until the file is **saved in Pencil**. Save before committing
-> the binary to git, or git will not capture the v2 work.
+> to the `.pen` on disk until the file is **saved in Pencil**, and the MCP only ever sees the
+> single open document (the `filePath` argument is ignored). Save before committing the binary
+> to git, or git will not capture the work.
 
 ---
 
@@ -46,9 +47,19 @@ clarity, operational excellence. Closer to a premium annual report than a market
 
 ---
 
-## 3. The file & how to access it
+## 3. The files & how to access them
 
-- **File:** `design-system.pen` (Pencil MCP `filePath` argument — actual filename on disk).
+- **Two files** (split for clean version separation):
+  - **`design-system-v2.pen`** — the **v2.0** system (boards `01–04 · v2` + `05 · Design
+    Review & Changelog`). This is the working file for current/new work.
+  - **`design-system-v1.pen`** — the **frozen v1.1** system (boards `01–04` + `06 · Themes`),
+    kept for reference/comparison. Do not edit.
+  - The old combined `design-system.pen` was retired (still in git history at commit `a7a241a`).
+- **Open the file you intend to work on in Pencil first.** Critical limitation learned: the
+  Pencil MCP is bound to the **single active editor** — the `filePath` argument is **ignored**
+  for both reads and writes, and changes only reach disk when **you Save in Pencil**. So you
+  cannot target a non-open file by path, and you cannot create/split files from the MCP; those
+  are GUI actions. Confirm which file is active with `get_editor_state` before editing.
 - `.pen` files are **encrypted** — only ever access them through `pencil` MCP tools. Never
   `Read`/`Grep`/`Edit` a `.pen` file directly.
 - **Always** call `get_editor_state(include_schema: true)` at the start of a session if the
@@ -62,12 +73,15 @@ clarity, operational excellence. Closer to a premium annual report than a market
 
 ---
 
-## 4. Architecture — four boards
+## 4. Architecture — boards
 
-Each board is a top-level frame in the document, laid out left→right via `FindEmptySpace`.
-All share the same anatomy: a dark **Cover**, numbered content sections (each with a section
-header `## NN Title`, a description, showcase, and an engineering documentation panel), and a
-**Governance** section showing the chain with the current layer marked `HERE`.
+Each board is a top-level frame, laid out left→right via `FindEmptySpace`. All share the same
+anatomy: a dark **Cover**, numbered content sections (each with a section header `## NN Title`,
+a description, showcase, and an engineering documentation panel), and a **Governance** section
+showing the chain with the current layer marked `HERE`. **Frame IDs are unique per file** —
+v1.1 IDs below live in `design-system-v1.pen`; v2 IDs live in `design-system-v2.pen`.
+
+**v1.1 — frozen, in `design-system-v1.pen`** (do not edit):
 
 | Board | Frame ID | Contents |
 |-------|----------|----------|
@@ -77,7 +91,7 @@ header `## NN Title`, a description, showcase, and an engineering documentation 
 | `04 · Patterns` | `jvEua` | Hero, Case Study, Writing, Resume, Contact patterns; Page Layout blueprints; Content Guidelines; Governance |
 | `06 · Themes` | `mO19J` | Theme Philosophy, Light Theme, Dark Theme, Theme Tokens (mode map), Components & Patterns in both modes, Accessibility audit, Theme Governance |
 
-**v2.0 boards** (parallel set, to the right; build these for current work — v1.1 above is frozen):
+**v2.0 — current work, in `design-system-v2.pen`:**
 
 | Board | Frame ID | Contents |
 |-------|----------|----------|
@@ -87,8 +101,10 @@ header `## NN Title`, a description, showcase, and an engineering documentation 
 | `04 · Patterns · v2` | `M7VtG` | Hero, Case Study Discovery, Case Study Detail, Writing, Resume, Contact, Page Layout Blueprints, Governance & Content |
 | `05 · Design Review & Changelog` | `ch8VD` | Executive Summary, Major Findings, What/Why Changed, Before↔After, Principles, Future |
 
-Reusable component **masters** live in the `⟐ Component Masters` library frame (v1.1 id `VX0oF`).
-**v2 masters** live in `⟐ Component Masters · v2` (id `J6aQ6v`) with fresh IDs:
+Reusable component **masters**: v1.1 uses `⟐ Component Masters` (id `VX0oF`) — present in the
+v1 file, and also kept in the **v2 file** solely because the Changelog's Before↔After instances
+the old Case Study Card `SG5xZ`. **v2 masters** live in `⟐ Component Masters · v2` (id `J6aQ6v`,
+v2 file only) with fresh IDs:
 Button `WuNSb` (Label `oDdYq`, Icon `OngS2`) · Icon Button `GPwQ9` · Nav Item `M8kBKi` (Label `OF1pw`) ·
 Tag `UsMEV` (Dot `Z6RdKt`, Label `v9dYgV`) · Metric `N323Wn` (Value `HF1zg`, Label `WHhXN`) ·
 Metric Card `xAD0x` (Eyebrow `YGXVS`, Value `v4Q8dH`, Label `dTkA7`) · Highlight Card `LA0Vr` ·
