@@ -16,8 +16,10 @@ think, and what measurable outcomes they delivered. Primary content: case studie
 writing, resume, achievements.
 
 **The system is built in Pencil** (the `.pen` design tool, accessed via the `pencil` MCP
-server), **not in code**. v1.0 is complete — all four layers exist. Any further work is
-refinement, a new board, or implementing the site in code from these blueprints.
+server), **not in code**. v1.1 is complete — all four layers exist **plus a dual-theme
+architecture (Light / Dark) on the `Mode` theme axis, documented on board `06 · Themes`**.
+Any further work is refinement, a new board, or implementing the site in code from these
+blueprints.
 
 ---
 
@@ -38,7 +40,7 @@ clarity, operational excellence. Closer to a premium annual report than a market
 
 ## 3. The file & how to access it
 
-- **File:** `Capanema Design System.pen` (Pencil MCP `filePath` argument).
+- **File:** `design-system.pen` (Pencil MCP `filePath` argument — actual filename on disk).
 - `.pen` files are **encrypted** — only ever access them through `pencil` MCP tools. Never
   `Read`/`Grep`/`Edit` a `.pen` file directly.
 - **Always** call `get_editor_state(include_schema: true)` at the start of a session if the
@@ -65,14 +67,16 @@ header `## NN Title`, a description, showcase, and an engineering documentation 
 | `02 · Tokens` | `gzBR6` | Text / Surface / Border / Action tokens, Governance & Usage |
 | `03 · Components` | `Dny8s` | Buttons, Navigation, Cards, Tags, Metrics, Timeline, Footer, Governance |
 | `04 · Patterns` | `jvEua` | Hero, Case Study, Writing, Resume, Contact patterns; Page Layout blueprints; Content Guidelines; Governance |
+| `06 · Themes` | `mO19J` | Theme Philosophy, Light Theme, Dark Theme, Theme Tokens (mode map), Components & Patterns in both modes, Accessibility audit, Theme Governance |
 
 Reusable component **masters** live in the `⟐ Component Masters` library frame (id `VX0oF`,
 far right of the Components board).
 
 **The governing principle (enforced by the system, not just documented):**
-`Foundation → Tokens → Components → Patterns → Pages`. Each layer references only the one
+`Foundation → Theme Tokens → Components → Patterns → Pages`. Each layer references only the one
 directly above it. Components consume **tokens**, never raw hex. Patterns compose **components**,
-never new primitives. Pages assemble **patterns**.
+never new primitives. Pages assemble **patterns** — and **pages set the theme** (a `theme:
+{Mode:"Dark"}` on a frame re-resolves every token beneath it; nothing else changes).
 
 ---
 
@@ -83,24 +87,36 @@ Reference any variable from a property with a `$` prefix (e.g. `fill: "$text-pri
 **aliases** that point at Foundation primitives — this is the abstraction layer. **When building
 anything new, consume the semantic tokens below, not the raw Foundation primitives.**
 
-### Foundation primitives (don't reference directly in components/patterns)
+### Foundation primitives (don't reference directly in components/patterns; static, never themed)
 - Brand: `primary-900` `#0F172A`, `primary-700` `#334155`
-- Accent: `accent-500` `#2563EB`, `accent-600` `#1D4ED8` (hover), `accent-700` `#1E40AF` (pressed)
+- Accent: `accent-500` `#2563EB`, `accent-600` `#1D4ED8` (hover), `accent-700` `#1E40AF` (pressed),
+  plus the dark-mode ramp `accent-400` `#3B82F6`, `accent-300` `#60A5FA`, `accent-200` `#93C5FD`
 - Neutrals: `neutral-0` `#FFFFFF`, `-50` `#F8FAFC`, `-200` `#E2E8F0`, `-300` `#CBD5E1`,
   `-400` `#94A3B8`, `-500` `#64748B`, `-600` `#475569`, `-700` `#334155`, `-800` `#1E293B`,
   `-900` `#0F172A`
+- Dark surfaces: `dark-900` `#0B1020` (bg), `dark-800` `#111827`, `dark-700` `#172033` (elevated)
 
-### Semantic tokens (use these)
-- **Text:** `text-primary`(→900) · `text-secondary`(→600) · `text-tertiary`(→500) ·
-  `text-muted`(→400) · `text-inverse`(→0) · `text-accent`/`text-success`(→accent-500)
-- **Surface:** `surface-primary`(→0) · `surface-secondary`(→50) · `surface-tertiary`(→200) ·
-  `surface-elevated`(→0 + Elevation 1) · `surface-accent`(→accent-500) · `surface-dark`(→900)
-- **Border:** `border-subtle`(→200) · `border-default`(→300) · `border-strong`(→400) ·
-  `border-accent`(→accent-500)
-- **Action:** `action-primary`(→accent-500) · `action-primary-hover`(→accent-600) ·
-  `action-primary-pressed`(→accent-700) · `action-secondary`(→primary-900) ·
-  `action-secondary-hover`(→primary-700) · `link`(→accent-500) · `link-hover`(→accent-600) ·
-  `focus-ring`(→accent-500) · `disabled`(→neutral-300) · `disabled-text`(→neutral-500)
+### Semantic tokens (use these — all themed on `Mode: Light | Dark`; format: Light → / Dark →)
+- **Text:** `text-primary`(900 / 50) · `text-secondary`(600 / 300) · `text-tertiary`(500 / 400) ·
+  `text-muted`(500 / 400 — raised from 400 in light for AA) · `text-inverse`(0 / 900, only on
+  `action-secondary` fills) · `text-accent`/`text-success`(accent-500 / accent-300)
+- **Static text helpers:** `text-on-accent`(→0, labels on accent fills) · `text-on-dark`(→50) ·
+  `text-on-dark-muted`(→400) — for always-dark surfaces (covers, Highlight Card)
+- **Surface:** `surface-primary`(0 / dark-900) · `surface-secondary`(50 / dark-800) ·
+  `surface-tertiary`(200 / 800) · `surface-elevated`(0 / dark-700) · `surface-dark`(900 / dark-700) ·
+  `surface-inverse`(900 / 50) · `surface-accent`(static accent-500) · `surface-dark-raised`(static 800)
+- **Border:** `border-subtle`(200 / 800) · `border-default`(300 / 700) · `border-strong`(400 / 600) ·
+  `border-accent`(accent-500 / accent-400)
+- **Action:** `action-primary`(static accent-500) · `action-primary-hover`(600 / 400 — hover
+  *lightens* in dark) · `action-primary-pressed`(700 / 600) · `action-secondary`(900 / 50 —
+  inverts) · `action-secondary-hover`(700 / 200) · `link`(500 / 300) · `link-hover`(600 / 200) ·
+  `focus-ring`(500 / 400) · `disabled`(300 / 700) · `disabled-text`(static 500)
+- **Elevation:** `shadow-1a`(`#0F172A14` / `#00000059`) · `shadow-1b`(`#0F172A0F` / `#00000040`)
+
+**To render anything in dark mode:** set `theme: {Mode: "Dark"}` on a wrapping frame — every
+token beneath re-resolves; components and patterns need zero overrides. Light is the default
+resolution. Full mode map, accessibility audit (WCAG AA verified) and contributor rules live on
+board `06 · Themes`.
 
 ### Type & spacing
 - Fonts: `font-sans` = **Inter**, `font-mono` = **JetBrains Mono**.
@@ -132,8 +148,12 @@ Override `fill` on the instance root for variants/states.
 | Timeline Item | `y8sbCU` | Dot `FiK5i`, Date `C8EEMa`, Title `D9Dxj`, Description `TDaWh`, Outcome `YyWsR`, Outcome Text `z9LUb` |
 
 **Variants are made by overriding tokens**, e.g. a Text button = Button with
-`fill:"#00000000"` + Label `fill:"$link"`; Secondary = `fill:"$action-secondary"`; Disabled =
-`fill:"$disabled"` + Label `fill:"$disabled-text"`. Timeline Item draws its connector as a
+`fill:"#00000000"` + Label `fill:"$link"`; Secondary = `fill:"$action-secondary"` **+ Label
+`fill:"$text-inverse"`** (required — the master's label defaults to `$text-on-accent`, which is
+static white for accent fills); Disabled = `fill:"$disabled"` + Label `fill:"$disabled-text"`.
+Theme-safety rules baked into the masters (v1.1): Button label/icon use `$text-on-accent`;
+Highlight Card uses `$text-on-dark` / `$text-on-dark-muted` / `$surface-dark-raised` (it is an
+always-dark surface in both modes); Case Study Card shadows use `$shadow-1a`/`$shadow-1b`. Timeline Item draws its connector as a
 left border (`strokeWidth:{left:2}`) with an absolutely-positioned dot — the **last** item in a
 timeline must override `strokeWidth:0` so the line doesn't dangle.
 
@@ -186,6 +206,13 @@ timeline must override `strokeWidth:0` so the line doesn't dangle.
   and it renders.
 - No `image` node type — images are **fills** applied via the `Generate` function.
 - Set variable values as objects: `{type:"color", value:"#.." | "$alias"}`. Reference with `$`.
+- **`set_variables` theming (critical):** merging a themed value array onto an existing plain
+  value **drops the unthemed base entry** — the token then resolves to `#000000` in the default
+  context and every light surface goes black. Always write themed variables with BOTH explicit
+  entries: `[{theme:{Mode:"Light"},value:..},{theme:{Mode:"Dark"},value:..}]`, then verify with
+  `batch_get(resolveVariables:true)` on a light-context node.
+- `batch_design` globals (assignment without `const`/`let`) may NOT persist across calls —
+  capture the returned IDs and hardcode them in the next call.
 
 ---
 
@@ -202,12 +229,14 @@ timeline must override `strokeWidth:0` so the line doesn't dangle.
 
 ## 11. Where to go next
 
-The four design layers are done. Likely next steps:
-- A `05` board (e.g. dark mode, responsive/mobile specs, motion, or iconography), **or**
+The four design layers plus the dual-theme layer (board `06 · Themes`) are done. Likely next steps:
+- A `05` board (e.g. responsive/mobile specs, motion, or iconography), **or**
 - **Implement capanema.io in code** from these blueprints. Default stack assumption:
   Next.js (App Router) on Vercel, Inter + JetBrains Mono, Tailwind with the tokens above mapped
-  to CSS variables. Use `get_variables` to export the exact token values, and follow the page
-  blueprints in board 04 for section order and the content guidelines for copy.
+  to CSS variables. Use `get_variables` to export the exact token values (both Mode resolutions),
+  follow the page blueprints in board 04 for section order and content guidelines for copy, and
+  implement theming per board 06 §08: CSS variables + `[data-theme]` + `prefers-color-scheme`
+  fallback, choice persisted in `localStorage`, applied by an inline head script before first paint.
 
 Persistent project notes also live in the Claude memory file
 `pencil-ds-foundation.md` (board IDs, master IDs, gotchas) — keep both in sync.
