@@ -100,6 +100,7 @@ v1.1 IDs below live in `design-system-v1.pen`; v2 IDs live in `design-system-v2.
 | `03 · Components · v2` | `fEH2K` | Controls, Data Display, Discovery Cards, Long-form, Wayfinding & Credibility, Governance |
 | `04 · Patterns · v2` | `M7VtG` | Hero, Case Study Discovery, Case Study Detail, Writing, Resume, Contact, Page Layout Blueprints, Governance & Content |
 | `05 · Design Review & Changelog` | `ch8VD` | Executive Summary, Major Findings, What/Why Changed, Before↔After, Principles, Future |
+| `06 · Documentation · v2` | `NnWw8` | Principles, Accessibility, Naming Conventions, Theme Architecture, Component Standards, AI Contribution Rules, Governance & Known Gaps — the system's governance layer, written for humans + AI agents |
 
 Reusable component **masters**: v1.1 uses `⟐ Component Masters` (id `VX0oF`) — present in the
 v1 file, and also kept in the **v2 file** solely because the Changelog's Before↔After instances
@@ -282,17 +283,23 @@ timeline must override `strokeWidth:0` so the line doesn't dangle.
 
 ## 11. Where to go next
 
-**v2.0 is done** — the parallel Foundation/Tokens/Components/Patterns boards plus the
-`05 · Design Review & Changelog` board, all within the existing DNA, with v1.1 frozen for
-comparison and dual-theme carried through. Likely next steps:
+**v2.0 is done** — the parallel Foundation/Tokens/Components/Patterns boards, the
+`05 · Design Review & Changelog` board, and the `06 · Documentation · v2` governance board
+(`NnWw8` — Principles, Accessibility, Naming Conventions, Theme Architecture, Component
+Standards, AI Contribution Rules, Governance & Known Gaps), all within the existing DNA, with
+v1.1 frozen for comparison and dual-theme carried through. **Backlog is now recorded on board
+06's "Governance & Known Gaps" section** — read it before starting the next layer. Likely next
+steps:
 - A **`07` board** (motion, responsive/mobile specs, or iconography — the one layer v2 didn't
-  add), **or**
+  add). Board 06 flags the specific token gaps to close first: a **radius scale**
+  (`radius-sm/-md/-lg/-pill`, replacing raw `10/12/999`), **type-scale tokens**
+  (`font-size-*`), **motion** (duration + easing), and **breakpoint** tokens, **or**
 - **Implement capanema.io in code** from the **v2** blueprints (board `04 · Patterns · v2`,
   `M7VtG`). Default stack assumption:
   Next.js (App Router) on Vercel, Inter + JetBrains Mono, Tailwind with the tokens above mapped
   to CSS variables. Use `get_variables` to export the exact token values (both Mode resolutions),
   follow the page blueprints in board 04 for section order and content guidelines for copy, and
-  implement theming per board 06 §08: CSS variables + `[data-theme]` + `prefers-color-scheme`
+  implement theming per the v1 file's `06 · Themes` board §08 (mO19J): CSS variables + `[data-theme]` + `prefers-color-scheme`
   fallback, choice persisted in `localStorage`, applied by an inline head script before first paint.
 
 Persistent project notes also live in the Claude memory file
