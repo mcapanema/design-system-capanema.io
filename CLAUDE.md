@@ -16,14 +16,19 @@ think, and what measurable outcomes they delivered. Primary content: case studie
 writing, resume, achievements.
 
 **The system is built in Pencil** (the `.pen` design tool, accessed via the `pencil` MCP
-server), **not in code**. **v2.0 is complete**, and v1.1 and v2.0 now live in **separate
-files** (`design-system-v1.pen`, `design-system-v2.pen` — see §3). v2.0 refined the system
-within its DNA: typography raised to publication grade, a long-form reading layer, status +
-prose tokens, a rebuilt case-study card and discovery model, an impact-first resume, new
-long-form/wayfinding components, and the orphaned shadcn token set neutralized. The dual-theme
-(Light / Dark, `Mode` axis) carries through v2 with zero component overrides. See board
-`05 · Design Review & Changelog` (in the v2 file) for the full audit and rationale. Any further
-work is a new board (e.g. `07` motion/responsive/iconography) or implementing the site in code.
+server), **not in code**. **v3.0 is the current version**, living in its own file
+(`design-system-v3.pen`); v2.0 and v1.1 are frozen in separate files for comparison (see §3).
+v2.0 refined the system within its DNA: typography raised to publication grade, a long-form
+reading layer, status + prose tokens, a rebuilt case-study card and discovery model, an
+impact-first resume, new long-form/wayfinding components, and the orphaned shadcn token set
+neutralized. **v3.0 is a token-level evolution** of v2: the accent became **Cobalt Deep**
+(`#2150B8`, decided via the `accent-lab.pen` funnel — replacing Tailwind blue `#2563EB`), plus
+a new **radius scale** and **motion** token set. v3 re-versions boards 01–06, rebuilds the
+Design Review as a formal scored audit, and adds a **Changelog** board and a **V2↔V3
+Comparison** board (see §3–§4). The dual-theme (Light / Dark, `Mode` axis) carries through with
+zero component overrides. Per scope, v3 swapped the accent **color only** — the lab's
+reduced-frequency *distribution* and *texture* were left for **V3.1**. Next work: V3.1, then
+type-scale + breakpoint tokens, an iconography layer, or implementing the site in code.
 
 > **Persistence note:** Pencil MCP edits a **live in-editor document**; changes are not written
 > to the `.pen` on disk until the file is **saved in Pencil**, and the MCP only ever sees the
@@ -49,11 +54,17 @@ clarity, operational excellence. Closer to a premium annual report than a market
 
 ## 3. The files & how to access them
 
-- **Two files** (split for clean version separation):
-  - **`design-system-v2.pen`** — the **v2.0** system (boards `01–04 · v2` + `05 · Design
-    Review & Changelog`). This is the working file for current/new work.
+- **Three versioned files** (split for clean version separation):
+  - **`design-system-v3.pen`** — the **v3.0** system and **current working file** (boards
+    `01–06 · v3` + `07 · Changelog · v3` + `08 · V2 ↔ V3 Comparison`). Cobalt Deep accent,
+    radius + motion tokens. Cloned from the v2 file, so boards 01–06 reuse v2's frame IDs.
+  - **`design-system-v2.pen`** — the **frozen v2.0** system (boards `01–04 · v2` + `05 · Design
+    Review & Changelog` + `06 · Documentation · v2`), kept for reference/comparison. Do not edit.
   - **`design-system-v1.pen`** — the **frozen v1.1** system (boards `01–04` + `06 · Themes`),
     kept for reference/comparison. Do not edit.
+  - **`accent-lab.pen`** — accent explorations (the v1–v6 funnel that chose Cobalt Deep) plus an
+    older **color-only** `07 · V3 · Cobalt Deep` doc board (`uFQye`) that the full v3 file
+    supersedes. Reference only.
   - The old combined `design-system.pen` was retired (still in git history at commit `a7a241a`).
 - **Open the file you intend to work on in Pencil first.** Critical limitation learned: the
   Pencil MCP is bound to the **single active editor** — the `filePath` argument is **ignored**
@@ -78,8 +89,9 @@ clarity, operational excellence. Closer to a premium annual report than a market
 Each board is a top-level frame, laid out left→right via `FindEmptySpace`. All share the same
 anatomy: a dark **Cover**, numbered content sections (each with a section header `## NN Title`,
 a description, showcase, and an engineering documentation panel), and a **Governance** section
-showing the chain with the current layer marked `HERE`. **Frame IDs are unique per file** —
-v1.1 IDs below live in `design-system-v1.pen`; v2 IDs live in `design-system-v2.pen`.
+showing the chain with the current layer marked `HERE`. **Frame IDs are unique per file**, but
+`design-system-v3.pen` was cloned from the v2 file, so its boards 01–06 reuse the **same IDs**
+as v2 (below); v3's new boards 07–08 have their own IDs. v1.1 IDs live in `design-system-v1.pen`.
 
 **v1.1 — frozen, in `design-system-v1.pen`** (do not edit):
 
@@ -91,7 +103,7 @@ v1.1 IDs below live in `design-system-v1.pen`; v2 IDs live in `design-system-v2.
 | `04 · Patterns` | `jvEua` | Hero, Case Study, Writing, Resume, Contact patterns; Page Layout blueprints; Content Guidelines; Governance |
 | `06 · Themes` | `mO19J` | Theme Philosophy, Light Theme, Dark Theme, Theme Tokens (mode map), Components & Patterns in both modes, Accessibility audit, Theme Governance |
 
-**v2.0 — current work, in `design-system-v2.pen`:**
+**v2.0 — frozen, in `design-system-v2.pen`** (boards 01–06; do not edit):
 
 | Board | Frame ID | Contents |
 |-------|----------|----------|
@@ -100,7 +112,20 @@ v1.1 IDs below live in `design-system-v1.pen`; v2 IDs live in `design-system-v2.
 | `03 · Components · v2` | `fEH2K` | Controls, Data Display, Discovery Cards, Long-form, Wayfinding & Credibility, Governance |
 | `04 · Patterns · v2` | `M7VtG` | Hero, Case Study Discovery, Case Study Detail, Writing, Resume, Contact, Page Layout Blueprints, Governance & Content |
 | `05 · Design Review & Changelog` | `ch8VD` | Executive Summary, Major Findings, What/Why Changed, Before↔After, Principles, Future |
-| `06 · Documentation · v2` | `NnWw8` | Principles, Accessibility, Naming Conventions, Theme Architecture, Component Standards, AI Contribution Rules, Governance & Known Gaps — the system's governance layer, written for humans + AI agents |
+| `06 · Documentation · v2` | `NnWw8` | Principles, Accessibility, Naming Conventions, Theme Architecture, Component Standards, AI Contribution Rules, Governance & Known Gaps |
+
+**v3.0 — current, in `design-system-v3.pen`** (cloned from v2 → boards 01–06 share v2's IDs):
+
+| Board | Frame ID | Contents |
+|-------|----------|----------|
+| `01 · Foundation · v3` | `hmZsC` | Color (Cobalt Deep), Typography, Spacing, Elevation, **+ Radius (`## 05`)**, **+ Motion (`## 06`)**, Governance |
+| `02 · Tokens · v3` | `IF92z` | Text/Surface/Border/Action/Status/Prose tables (accent re-resolved), **+ Radius (`## 07`)** & **Motion (`## 08`)** token tables, Governance |
+| `03 · Components · v3` | `fEH2K` | Re-versioned; visuals auto-resolve Cobalt; masters consume `radius-*` tokens |
+| `04 · Patterns · v3` | `M7VtG` | Re-versioned; visuals auto-resolve Cobalt |
+| `05 · Design Review · v3` | `ch8VD` | **Rebuilt** for v3: Executive Summary, 10-dimension Evaluation scorecard, Improvements Over V2, Regressions, Open Risks, Future Opportunities, Final Assessment (Ship verdict) |
+| `06 · Documentation · v3` | `NnWw8` | Re-versioned; radius + motion gaps marked **RESOLVED**; primitives table extended with radius/motion |
+| `07 · Changelog · v3` | `hNrUG` | Added / Changed / Improved / Deprecated / Removed — each major entry with why · problem · impact |
+| `08 · V2 ↔ V3 Comparison` | `HuQip` | Accent before↔after, layer-by-layer table, Design Review score deltas, Changelog summary |
 
 Reusable component **masters**: v1.1 uses `⟐ Component Masters` (id `VX0oF`) — present in the
 v1 file, and also kept in the **v2 file** solely because the Changelog's Before↔After instances
@@ -114,6 +139,12 @@ Case Study Card `BtcCZ` (Category `auz5R`, Title `In95P`, Summary `p3IzlV`) · A
 (Category `U3qGMx`, Date `SMe7N`, Title `vdP6J`, Excerpt `UEIi6`, ReadTime `L5b01`) ·
 Pullquote `oV5N6` (Quote `giEAq`) · Callout `WlpMe` (Icon `ZYRK5`, Title `VEi4E`, Text `srHuJ`; variants swap fill+icon to `status-*`) ·
 ToC Rail `Br6Rv` · Breadcrumb `ahkiC` · Credibility Strip `xTEMM` · Footer `JkvM5`.
+
+**In `design-system-v3.pen`** these same masters (cloned, identical IDs in `⟐ Component
+Masters · v2`, id `J6aQ6v`) carry the Cobalt accent via tokens and now consume the new
+`radius-*` scale for their corners: Button/Icon Button `radius-sm`; Metric/Highlight/Case
+Study/Article cards `radius-md`; Tag, Tag Dot, and Timeline Dot `radius-pill`; Callout
+`radius-sm` (snapped from raw 10).
 
 **The governing principle (enforced by the system, not just documented):**
 `Foundation → Theme Tokens → Components → Patterns → Pages`. Each layer references only the one
@@ -143,8 +174,13 @@ anything new, consume the semantic tokens below, not the raw Foundation primitiv
 
 ### Foundation primitives (don't reference directly in components/patterns; static, never themed)
 - Brand: `primary-900` `#0F172A`, `primary-700` `#334155`
-- Accent: `accent-500` `#2563EB`, `accent-600` `#1D4ED8` (hover), `accent-700` `#1E40AF` (pressed),
-  plus the dark-mode ramp `accent-400` `#3B82F6`, `accent-300` `#60A5FA`, `accent-200` `#93C5FD`
+- Accent (**V3 · Cobalt Deep** — replaced the prior Tailwind-blue ramp): `accent-500` `#2150B8`,
+  `accent-600` `#1A4097` (hover), `accent-700` `#16357A` (pressed), plus the dark-mode ramp
+  `accent-400` `#3F6BD0`, `accent-300` `#6E96E2`, `accent-200` `#A6C1F0`. A deeper, slightly
+  desaturated cobalt in the same blue family; integrated purely at these six primitives, so every
+  semantic accent token + component + pattern re-resolved in both themes with zero structural change.
+  (Prior accent was `#2563EB` = Tailwind blue-600.) Documented on `01 · Foundation · v3` /
+  `02 · Tokens · v3`; chosen via the `accent-lab.pen` v1–v6 funnel.
 - Neutrals: `neutral-0` `#FFFFFF`, `-50` `#F8FAFC`, `-200` `#E2E8F0`, `-300` `#CBD5E1`,
   `-400` `#94A3B8`, `-500` `#64748B`, `-600` `#475569`, `-700` `#334155`, `-800` `#1E293B`,
   `-900` `#0F172A`
@@ -172,12 +208,17 @@ token beneath re-resolves; components and patterns need zero overrides. Light is
 resolution. Full mode map, accessibility audit (WCAG AA verified) and contributor rules live on
 board `06 · Themes`.
 
-### Type & spacing
+### Type, spacing, radius & motion
 - Fonts: `font-sans` = **Inter**, `font-mono` = **JetBrains Mono**.
 - Type scale (px): Display XL 72 / L 64 / M 56 · H1 48 · H2 40 · H3 32 · H4 24 · H5 20 ·
   Body L 18 / M 16 / S 14 · Caption 12. Weights 400/500/600/700. Hierarchy comes from size &
-  weight, **never color**.
+  weight, **never color**. (Not yet tokenized — a known gap.)
 - Spacing (8-pt): `space-0..space-12` = 0, 4, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96, 128.
+- **Radius** (v3, non-themed): `radius-sm` 8 · `radius-md` 12 · `radius-lg` 16 · `radius-pill`
+  999. Components consume these, never raw corner values.
+- **Motion** (v3, non-themed; defined for code, not animated on the boards): `duration-fast` 120 ·
+  `duration-base` 200 · `duration-slow` 320 (ms); `ease-standard` `cubic-bezier(0.2,0,0,1)` ·
+  `ease-emphasized` `cubic-bezier(0.3,0,0,1)`.
 - Elevation (subtle, executive): Elevation 0 flat / 1 raised (`y1·3px·8%`) / 2 hover
   (`y4·12px·12%`) / 3 overlay (`y12·24px·16%`). Shadows are layered outer `#0F172A` with low alpha.
 
@@ -283,18 +324,18 @@ timeline must override `strokeWidth:0` so the line doesn't dangle.
 
 ## 11. Where to go next
 
-**v2.0 is done** — the parallel Foundation/Tokens/Components/Patterns boards, the
-`05 · Design Review & Changelog` board, and the `06 · Documentation · v2` governance board
-(`NnWw8` — Principles, Accessibility, Naming Conventions, Theme Architecture, Component
-Standards, AI Contribution Rules, Governance & Known Gaps), all within the existing DNA, with
-v1.1 frozen for comparison and dual-theme carried through. **Backlog is now recorded on board
-06's "Governance & Known Gaps" section** — read it before starting the next layer. Likely next
-steps:
-- A **`07` board** (motion, responsive/mobile specs, or iconography — the one layer v2 didn't
-  add). Board 06 flags the specific token gaps to close first: a **radius scale**
-  (`radius-sm/-md/-lg/-pill`, replacing raw `10/12/999`), **type-scale tokens**
-  (`font-size-*`), **motion** (duration + easing), and **breakpoint** tokens, **or**
-- **Implement capanema.io in code** from the **v2** blueprints (board `04 · Patterns · v2`,
+**v3.0 is done** — `design-system-v3.pen` holds the full system: re-versioned
+Foundation/Tokens/Components/Patterns, a rebuilt `05 · Design Review · v3`, an updated
+`06 · Documentation · v3`, plus new `07 · Changelog · v3` and `08 · V2 ↔ V3 Comparison` boards.
+The accent is Cobalt Deep; radius and motion are tokenized. v1.1 and v2.0 are frozen for
+comparison; dual-theme carries through. **Backlog lives on board `06 · Documentation · v3`'s
+"Governance & Known Gaps" section** (radius + motion now RESOLVED). Likely next steps:
+- **V3.1 — make the accent *structural*:** adopt the lab's reduced-frequency distribution
+  (neutral tags, ink metrics, accent reserved for eyebrow/CTA/links/active-nav) + texture
+  treatments (see `accent-lab.pen` v5–v6). The highest-leverage next move.
+- **Close remaining token gaps** — type-scale (`font-size-*`) and **breakpoint** tokens; then an
+  iconography layer.
+- **Implement capanema.io in code** from the **v3** blueprints (board `04 · Patterns · v3`,
   `M7VtG`). Default stack assumption:
   Next.js (App Router) on Vercel, Inter + JetBrains Mono, Tailwind with the tokens above mapped
   to CSS variables. Use `get_variables` to export the exact token values (both Mode resolutions),
@@ -302,5 +343,5 @@ steps:
   implement theming per the v1 file's `06 · Themes` board §08 (mO19J): CSS variables + `[data-theme]` + `prefers-color-scheme`
   fallback, choice persisted in `localStorage`, applied by an inline head script before first paint.
 
-Persistent project notes also live in the Claude memory file
-`pencil-ds-foundation.md` (board IDs, master IDs, gotchas) — keep both in sync.
+Persistent project notes also live in the Claude memory file `design-system-v3-file.md`
+(v3 file, boards, tokens, gotchas) — keep CLAUDE.md and memory in sync.
