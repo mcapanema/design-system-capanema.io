@@ -29,7 +29,8 @@ and rendering metrics/outcomes as ink — plus two textures (an **eyebrow accent
 **section tick**, via a new reusable **Eyebrow** master); and (b) adds **`font-size-*`** (12-step
 type scale, consumed by all 16 masters), **`breakpoint-*`** (responsive contract), **`icon-*`**
 (size tokens), and a **motion-choreography** spec (interaction→token table + button state
-ladder). It also adds a new **`09 · Iconography`** board, re-versions boards 01–08 to v3.1,
+ladder). It folds iconography into the **Foundation** board (a new `## 08` section) plus an
+**Icon** token table on the Tokens board, re-versions boards 01–08 to v3.1,
 rebuilds the Design Review, and extends the Changelog and Comparison. No type/spacing values,
 layouts, or component inventory changed. The dual-theme (Light / Dark, `Mode` axis) carries
 through with zero component overrides. Next work: **implement capanema.io in code** from the
@@ -61,10 +62,10 @@ clarity, operational excellence. Closer to a premium annual report than a market
 
 - **Versioned files** (split for clean version separation):
   - **`design-system-v3.1.pen`** — the **v3.1** system and **current working file** (boards
-    `01–08 · v3.1` + new `09 · Iconography · v3.1`). Structural Cobalt accent + texture,
-    `font-size-*`/`breakpoint-*`/`icon-*` tokens, motion choreography. **Cloned from the v3
-    file**, so boards 01–08 reuse v3's frame IDs (see §4); the Eyebrow master and board 09 have
-    fresh IDs.
+    `01–08 · v3.1`). Structural Cobalt accent + texture, `font-size-*`/`breakpoint-*`/`icon-*`
+    tokens, motion choreography, iconography (Foundation §08 + a Tokens Icon table). **Cloned
+    from the v3 file**, so boards 01–08 reuse v3's frame IDs (see §4); the Eyebrow master
+    (`T2HLO`, now inside the Component Masters board) has a fresh ID.
   - **`design-system-v3.pen`** — the **frozen v3.0** system (boards `01–06 · v3` + `07 ·
     Changelog · v3` + `08 · V2 ↔ V3 Comparison`). Cobalt color-only, radius + motion. Do not edit.
   - **`design-system-v2.pen`** — the **frozen v2.0** system (boards `01–04 · v2` + `05 · Design
@@ -101,8 +102,9 @@ a description, showcase, and an engineering documentation panel), and a **Govern
 showing the chain with the current layer marked `HERE`. **Frame IDs are unique per file**, but
 each version was cloned from the previous one, so IDs carry forward: `design-system-v3.1.pen`
 was cloned from the v3 file, which was cloned from v2 — so boards 01–08 reuse the **same IDs**
-across v2/v3/v3.1 (below). v3.1's new `09 · Iconography` board (`C328oX`) and the Eyebrow master
-(`T2HLO`) have their own IDs. v1.1 IDs live in `design-system-v1.pen`.
+across v2/v3/v3.1 (below). v3.1's Eyebrow master (`T2HLO`, in the Component Masters board) has
+its own ID; iconography was folded into Foundation `## 08` + a Tokens Icon table, so there is
+**no standalone board 09**. v1.1 IDs live in `design-system-v1.pen`.
 
 **v1.1 — frozen, in `design-system-v1.pen`** (do not edit):
 
@@ -142,15 +144,16 @@ across v2/v3/v3.1 (below). v3.1's new `09 · Iconography` board (`C328oX`) and t
 
 | Board | Frame ID | Contents |
 |-------|----------|----------|
-| `01 · Foundation · v3.1` | `hmZsC` | Color, Typography, Spacing, Elevation, Radius, Motion, **+ Responsive (`## 07`, breakpoint table + reflow schematic)**, **+ Motion choreography block** (in the Motion section: interaction→token table + Button state ladder), Governance |
-| `02 · Tokens · v3.1` | `IF92z` | Text/Surface/Border/Action/Status/Prose, **+ Type Scale (`## 07`)** table; Radius→`## 08`, Motion→`## 09`, Governance→`## 10` |
+| `01 · Foundation · v3.1` | `hmZsC` | Color, Typography, Spacing, Elevation, Radius, Motion, **+ Responsive (`## 07`)**, **+ Motion choreography block** (in the Motion section), **+ Iconography (`## 08`** — system rules, size previews, inventory grid, illustration policy), Governance |
+| `02 · Tokens · v3.1` | `IF92z` | Text/Surface/Border/Action/Status/Prose, **+ Type Scale (`## 07`)**; Radius→`## 08`, Motion→`## 09`, **+ Icon (`## 10`)** table, Governance→`## 11` |
 | `03 · Components · v3.1` | `fEH2K` | Re-versioned; categories/metric-eyebrows neutralized to `text-tertiary`; masters re-pointed to `font-size-*`; **+ Accent Distribution rule card** in Governance |
 | `04 · Patterns · v3.1` | `M7VtG` | Re-versioned; **accent texture applied** — Hero (`FY2K8`) & Case Study Detail (`b8yr0`) eyebrows swapped to Eyebrow instances + a section tick above each headline |
 | `05 · Design Review · v3.1` | `ch8VD` | Refreshed: exec summary, **11-dim** scorecard (Scalability & Brand → 5.0, + Iconography), rewritten Open Risks, v3.1 Final Assessment |
 | `06 · Documentation · v3.1` | `NnWw8` | Type-scale / breakpoint / icon gaps marked **RESOLVED**; primitives table extended with `font-size-*`, `breakpoint-*`, `icon-*` |
 | `07 · Changelog · v3.1` | `hNrUG` | v3.1 entries prepended to Added / Changed / Improved (tagged `(v3.1)`) |
-| `08 · V2 ↔ V3 ↔ V3.1 Comparison` | `HuQip` | Layer table gains a **V3.1 column** + 5 new-layer rows (Type scale, Breakpoints, Iconography, Motion choreography, Accent distribution) |
-| `09 · Iconography · v3.1` | `C328oX` | System, Sizes (`icon-*` table w/ live previews), Inventory (3×3 lucide grid), Illustration policy, Governance |
+| `08 · V3 → V3.1 Comparison` | `HuQip` | **Rebuilt as a focused v3→v3.1 diff** (v3.0 lives in its own file): Headline (accent-distribution before/after chips), Layer-by-layer (`V3 \| V3.1`), Design Review delta (only Scalability/Brand→5.0 + new Iconography), New-in-v3.1 chip grid |
+
+(No standalone Iconography board — it lives as Foundation `## 08` + the Tokens `## 10` Icon table.)
 
 Reusable component **masters**: v1.1 uses `⟐ Component Masters` (id `VX0oF`) — present in the
 v1 file, and also kept in the **v2 file** solely because the Changelog's Before↔After instances
@@ -178,7 +181,8 @@ category `U3qGMx` → `text-tertiary` (no longer accent); Timeline outcome `ewLY
 CS CTA `bedzm`/`Aw13Z` (`link`), Tag/Timeline dots, ToC active `c2XYSn` (`border-accent`). All
 on-scale text re-pointed to `font-size-*` (15/13/11px literals left as-is — off the documented
 ramp). New reusable **Eyebrow** master `T2HLO` (Bar `baWVB` = `surface-accent`/`radius-pill`,
-Label `YwOGh` = `text-accent` mono) — instanced in the Hero/Case-Study eyebrows.
+Label `YwOGh` = `text-accent` mono) — it lives **inside the Component Masters board** (`J6aQ6v`)
+with the other masters, and is instanced in the Hero/Case-Study eyebrows.
 
 **The governing principle (enforced by the system, not just documented):**
 `Foundation → Theme Tokens → Components → Patterns → Pages`. Each layer references only the one
@@ -385,7 +389,7 @@ timeline must override `strokeWidth:0` so the line doesn't dangle.
 **structural** (reserved + textured via the Eyebrow master), and the type-scale (`font-size-*`),
 breakpoint (`breakpoint-*`), icon (`icon-*`), and motion-choreography gaps are closed. Boards
 01–08 are re-versioned to v3.1, the Design Review is refreshed, the Changelog and Comparison are
-extended, and a new `09 · Iconography` board is added. v3.0, v2.0, v1.1 are frozen for
+extended, and iconography is folded into Foundation (`## 08`) + a Tokens Icon table. v3.0, v2.0, v1.1 are frozen for
 comparison; dual-theme carries through. **Backlog lives on board `06 · Documentation · v3.1`'s
 "Governance & Known Gaps" section** (type-scale + breakpoint + icon now RESOLVED). Likely next steps:
 - **Implement capanema.io in code** from the **v3.1** blueprints (board `04 · Patterns · v3.1`,
