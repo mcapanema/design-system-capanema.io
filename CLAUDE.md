@@ -16,14 +16,25 @@ think, and what measurable outcomes they delivered. Primary content: case studie
 writing, resume, achievements.
 
 **The system is built in Pencil** (the `.pen` design tool, accessed via the `pencil` MCP
-server), **not in code**. **v2.0 is complete**, and v1.1 and v2.0 now live in **separate
-files** (`design-system-v1.pen`, `design-system-v2.pen` — see §3). v2.0 refined the system
-within its DNA: typography raised to publication grade, a long-form reading layer, status +
-prose tokens, a rebuilt case-study card and discovery model, an impact-first resume, new
-long-form/wayfinding components, and the orphaned shadcn token set neutralized. The dual-theme
-(Light / Dark, `Mode` axis) carries through v2 with zero component overrides. See board
-`05 · Design Review & Changelog` (in the v2 file) for the full audit and rationale. Any further
-work is a new board (e.g. `07` motion/responsive/iconography) or implementing the site in code.
+server), **not in code**. **v3.1 is the current version**, living in its own file
+(`design-system-v3.1.pen`); v3.0, v2.0 and v1.1 are frozen in separate files for comparison
+(see §3). v2.0 refined the system within its DNA (publication-grade type, long-form reading
+layer, status + prose tokens, rebuilt case-study card, impact-first resume, shadcn set
+neutralized). **v3.0 was a token-level evolution** of v2: the accent became **Cobalt Deep**
+(`#2150B8`, decided via the `accent-lab.pen` funnel — replacing Tailwind blue `#2563EB`), plus
+a **radius scale** and **motion** token set — but v3.0 swapped the accent **color only**.
+**v3.1 makes the accent _structural_ and closes the remaining token gaps.** It (a) reserves
+accent for **eyebrows, CTAs, links, and active nav** while neutralizing categories/tags (ink)
+and rendering metrics/outcomes as ink — plus two textures (an **eyebrow accent bar** and a
+**section tick**, via a new reusable **Eyebrow** master); and (b) adds **`font-size-*`** (12-step
+type scale, consumed by all 16 masters), **`breakpoint-*`** (responsive contract), **`icon-*`**
+(size tokens), and a **motion-choreography** spec (interaction→token table + button state
+ladder). It folds iconography into the **Foundation** board (a new `## 08` section) plus an
+**Icon** token table on the Tokens board, re-versions boards 01–08 to v3.1,
+rebuilds the Design Review, and extends the Changelog and Comparison. No type/spacing values,
+layouts, or component inventory changed. The dual-theme (Light / Dark, `Mode` axis) carries
+through with zero component overrides. Next work: **implement capanema.io in code** from the
+v3.1 blueprints.
 
 > **Persistence note:** Pencil MCP edits a **live in-editor document**; changes are not written
 > to the `.pen` on disk until the file is **saved in Pencil**, and the MCP only ever sees the
@@ -49,11 +60,21 @@ clarity, operational excellence. Closer to a premium annual report than a market
 
 ## 3. The files & how to access them
 
-- **Two files** (split for clean version separation):
-  - **`design-system-v2.pen`** — the **v2.0** system (boards `01–04 · v2` + `05 · Design
-    Review & Changelog`). This is the working file for current/new work.
+- **Versioned files** (split for clean version separation):
+  - **`design-system-v3.1.pen`** — the **v3.1** system and **current working file** (boards
+    `01–08 · v3.1`). Structural Cobalt accent + texture, `font-size-*`/`breakpoint-*`/`icon-*`
+    tokens, motion choreography, iconography (Foundation §08 + a Tokens Icon table). **Cloned
+    from the v3 file**, so boards 01–08 reuse v3's frame IDs (see §4); the Eyebrow master
+    (`T2HLO`, now inside the Component Masters board) has a fresh ID.
+  - **`design-system-v3.pen`** — the **frozen v3.0** system (boards `01–06 · v3` + `07 ·
+    Changelog · v3` + `08 · V2 ↔ V3 Comparison`). Cobalt color-only, radius + motion. Do not edit.
+  - **`design-system-v2.pen`** — the **frozen v2.0** system (boards `01–04 · v2` + `05 · Design
+    Review & Changelog` + `06 · Documentation · v2`), kept for reference/comparison. Do not edit.
   - **`design-system-v1.pen`** — the **frozen v1.1** system (boards `01–04` + `06 · Themes`),
     kept for reference/comparison. Do not edit.
+  - **`accent-lab.pen`** — accent explorations (the v1–v6 funnel that chose Cobalt Deep) plus an
+    older **color-only** `07 · V3 · Cobalt Deep` doc board (`uFQye`) that the full v3 file
+    supersedes. Reference only.
   - The old combined `design-system.pen` was retired (still in git history at commit `a7a241a`).
 - **Open the file you intend to work on in Pencil first.** Critical limitation learned: the
   Pencil MCP is bound to the **single active editor** — the `filePath` argument is **ignored**
@@ -78,8 +99,12 @@ clarity, operational excellence. Closer to a premium annual report than a market
 Each board is a top-level frame, laid out left→right via `FindEmptySpace`. All share the same
 anatomy: a dark **Cover**, numbered content sections (each with a section header `## NN Title`,
 a description, showcase, and an engineering documentation panel), and a **Governance** section
-showing the chain with the current layer marked `HERE`. **Frame IDs are unique per file** —
-v1.1 IDs below live in `design-system-v1.pen`; v2 IDs live in `design-system-v2.pen`.
+showing the chain with the current layer marked `HERE`. **Frame IDs are unique per file**, but
+each version was cloned from the previous one, so IDs carry forward: `design-system-v3.1.pen`
+was cloned from the v3 file, which was cloned from v2 — so boards 01–08 reuse the **same IDs**
+across v2/v3/v3.1 (below). v3.1's Eyebrow master (`T2HLO`, in the Component Masters board) has
+its own ID; iconography was folded into Foundation `## 08` + a Tokens Icon table, so there is
+**no standalone board 09**. v1.1 IDs live in `design-system-v1.pen`.
 
 **v1.1 — frozen, in `design-system-v1.pen`** (do not edit):
 
@@ -91,7 +116,7 @@ v1.1 IDs below live in `design-system-v1.pen`; v2 IDs live in `design-system-v2.
 | `04 · Patterns` | `jvEua` | Hero, Case Study, Writing, Resume, Contact patterns; Page Layout blueprints; Content Guidelines; Governance |
 | `06 · Themes` | `mO19J` | Theme Philosophy, Light Theme, Dark Theme, Theme Tokens (mode map), Components & Patterns in both modes, Accessibility audit, Theme Governance |
 
-**v2.0 — current work, in `design-system-v2.pen`:**
+**v2.0 — frozen, in `design-system-v2.pen`** (boards 01–06; do not edit):
 
 | Board | Frame ID | Contents |
 |-------|----------|----------|
@@ -100,7 +125,35 @@ v1.1 IDs below live in `design-system-v1.pen`; v2 IDs live in `design-system-v2.
 | `03 · Components · v2` | `fEH2K` | Controls, Data Display, Discovery Cards, Long-form, Wayfinding & Credibility, Governance |
 | `04 · Patterns · v2` | `M7VtG` | Hero, Case Study Discovery, Case Study Detail, Writing, Resume, Contact, Page Layout Blueprints, Governance & Content |
 | `05 · Design Review & Changelog` | `ch8VD` | Executive Summary, Major Findings, What/Why Changed, Before↔After, Principles, Future |
-| `06 · Documentation · v2` | `NnWw8` | Principles, Accessibility, Naming Conventions, Theme Architecture, Component Standards, AI Contribution Rules, Governance & Known Gaps — the system's governance layer, written for humans + AI agents |
+| `06 · Documentation · v2` | `NnWw8` | Principles, Accessibility, Naming Conventions, Theme Architecture, Component Standards, AI Contribution Rules, Governance & Known Gaps |
+
+**v3.0 — frozen, in `design-system-v3.pen`** (cloned from v2 → boards 01–06 share v2's IDs):
+
+| Board | Frame ID | Contents |
+|-------|----------|----------|
+| `01 · Foundation · v3` | `hmZsC` | Color (Cobalt Deep), Typography, Spacing, Elevation, **+ Radius (`## 05`)**, **+ Motion (`## 06`)**, Governance |
+| `02 · Tokens · v3` | `IF92z` | Text/Surface/Border/Action/Status/Prose tables (accent re-resolved), **+ Radius (`## 07`)** & **Motion (`## 08`)** token tables, Governance |
+| `03 · Components · v3` | `fEH2K` | Re-versioned; visuals auto-resolve Cobalt; masters consume `radius-*` tokens |
+| `04 · Patterns · v3` | `M7VtG` | Re-versioned; visuals auto-resolve Cobalt |
+| `05 · Design Review · v3` | `ch8VD` | Rebuilt for v3: scored audit |
+| `06 · Documentation · v3` | `NnWw8` | Re-versioned; radius + motion gaps marked RESOLVED |
+| `07 · Changelog · v3` | `hNrUG` | Added / Changed / Improved / Deprecated / Removed |
+| `08 · V2 ↔ V3 Comparison` | `HuQip` | Accent before↔after, layer-by-layer table, score deltas, changelog summary |
+
+**v3.1 — current, in `design-system-v3.1.pen`** (cloned from v3 → boards 01–08 share v3's IDs):
+
+| Board | Frame ID | Contents |
+|-------|----------|----------|
+| `01 · Foundation · v3.1` | `hmZsC` | Color, Typography, Spacing, Elevation, Radius, Motion, **+ Responsive (`## 07`)**, **+ Motion choreography block** (in the Motion section), **+ Iconography (`## 08`** — system rules, size previews, inventory grid, illustration policy), Governance |
+| `02 · Tokens · v3.1` | `IF92z` | Text/Surface/Border/Action/Status/Prose, **+ Type Scale (`## 07`)**; Radius→`## 08`, Motion→`## 09`, **+ Icon (`## 10`)** table, Governance→`## 11` |
+| `03 · Components · v3.1` | `fEH2K` | Re-versioned; categories/metric-eyebrows neutralized to `text-tertiary`; masters re-pointed to `font-size-*`; **+ Accent Distribution rule card** in Governance |
+| `04 · Patterns · v3.1` | `M7VtG` | Re-versioned; **accent texture applied** — Hero (`FY2K8`) & Case Study Detail (`b8yr0`) eyebrows swapped to Eyebrow instances + a section tick above each headline |
+| `05 · Design Review · v3.1` | `ch8VD` | Refreshed: exec summary, **11-dim** scorecard (Scalability & Brand → 5.0, + Iconography), rewritten Open Risks, v3.1 Final Assessment |
+| `06 · Documentation · v3.1` | `NnWw8` | Type-scale / breakpoint / icon gaps marked **RESOLVED**; primitives table extended with `font-size-*`, `breakpoint-*`, `icon-*` |
+| `07 · Changelog · v3.1` | `hNrUG` | v3.1 entries prepended to Added / Changed / Improved (tagged `(v3.1)`) |
+| `08 · V3 → V3.1 Comparison` | `HuQip` | **Rebuilt as a focused v3→v3.1 diff** (v3.0 lives in its own file): Headline (accent-distribution before/after chips), Layer-by-layer (`V3 \| V3.1`), Design Review delta (only Scalability/Brand→5.0 + new Iconography), New-in-v3.1 chip grid |
+
+(No standalone Iconography board — it lives as Foundation `## 08` + the Tokens `## 10` Icon table.)
 
 Reusable component **masters**: v1.1 uses `⟐ Component Masters` (id `VX0oF`) — present in the
 v1 file, and also kept in the **v2 file** solely because the Changelog's Before↔After instances
@@ -114,6 +167,22 @@ Case Study Card `BtcCZ` (Category `auz5R`, Title `In95P`, Summary `p3IzlV`) · A
 (Category `U3qGMx`, Date `SMe7N`, Title `vdP6J`, Excerpt `UEIi6`, ReadTime `L5b01`) ·
 Pullquote `oV5N6` (Quote `giEAq`) · Callout `WlpMe` (Icon `ZYRK5`, Title `VEi4E`, Text `srHuJ`; variants swap fill+icon to `status-*`) ·
 ToC Rail `Br6Rv` · Breadcrumb `ahkiC` · Credibility Strip `xTEMM` · Footer `JkvM5`.
+
+**In `design-system-v3.pen`** these same masters (cloned, identical IDs in `⟐ Component
+Masters · v2`, id `J6aQ6v`) carry the Cobalt accent via tokens and now consume the new
+`radius-*` scale for their corners: Button/Icon Button `radius-sm`; Metric/Highlight/Case
+Study/Article cards `radius-md`; Tag, Tag Dot, and Timeline Dot `radius-pill`; Callout
+`radius-sm` (snapped from raw 10).
+
+**In `design-system-v3.1.pen`** (same `J6aQ6v` masters, same IDs) the structural-accent change
+edits these masters: Metric Card eyebrow `YGXVS`, Case Study category `auz5R`, and Article
+category `U3qGMx` → `text-tertiary` (no longer accent); Timeline outcome `ewLYz` → `text-primary`
++ weight 600 with icon `JFEbz` → `text-tertiary` (ink metric). **Reserved accent left intact:**
+CS CTA `bedzm`/`Aw13Z` (`link`), Tag/Timeline dots, ToC active `c2XYSn` (`border-accent`). All
+on-scale text re-pointed to `font-size-*` (15/13/11px literals left as-is — off the documented
+ramp). New reusable **Eyebrow** master `T2HLO` (Bar `baWVB` = `surface-accent`/`radius-pill`,
+Label `YwOGh` = `text-accent` mono) — it lives **inside the Component Masters board** (`J6aQ6v`)
+with the other masters, and is instanced in the Hero/Case-Study eyebrows.
 
 **The governing principle (enforced by the system, not just documented):**
 `Foundation → Theme Tokens → Components → Patterns → Pages`. Each layer references only the one
@@ -141,10 +210,27 @@ anything new, consume the semantic tokens below, not the raw Foundation primitiv
 > set *before* that token exists is silently stored as `#000000` — define tokens first, then
 > reference. `letterSpacing` is in **px** (negative on display).
 
+> **v3.1 token additions (non-themed numbers):** **`font-size-*`** — the 12-step type ramp
+> tokenized: `-display-xl` 72 · `-display-l` 64 · `-display-m` 56 · `-h1` 48 · `-h2` 40 · `-h3`
+> 32 · `-h4` 24 · `-h5` 20 · `-body-l` 18 · `-body-m` 16 · `-body-s` 14 · `-caption` 12. All 16
+> masters consume them; **15/13/11px literals stay raw** (off the documented ramp — expanding it
+> was out of scope). **`breakpoint-*`** — `-sm` 640 · `-md` 768 · `-lg` 1024 · `-xl` 1280
+> (responsive contract; documented on the Foundation Responsive section). **`icon-*`** — `-sm`
+> 16 · `-md` 20 · `-lg` 24 (icon sizing; **note:** icon `width`/`height` does **not** accept a
+> variable binding — it coerces to 0 — so set literal px equal to the token). **Structural-accent
+> rule:** reserve accent for **eyebrows, CTAs, links, active nav**; categories/tags are neutral,
+> metrics/outcomes are ink; emphasis comes from size, weight, and the eyebrow bar / section tick
+> — never from spreading color.
+
 ### Foundation primitives (don't reference directly in components/patterns; static, never themed)
 - Brand: `primary-900` `#0F172A`, `primary-700` `#334155`
-- Accent: `accent-500` `#2563EB`, `accent-600` `#1D4ED8` (hover), `accent-700` `#1E40AF` (pressed),
-  plus the dark-mode ramp `accent-400` `#3B82F6`, `accent-300` `#60A5FA`, `accent-200` `#93C5FD`
+- Accent (**V3 · Cobalt Deep** — replaced the prior Tailwind-blue ramp): `accent-500` `#2150B8`,
+  `accent-600` `#1A4097` (hover), `accent-700` `#16357A` (pressed), plus the dark-mode ramp
+  `accent-400` `#3F6BD0`, `accent-300` `#6E96E2`, `accent-200` `#A6C1F0`. A deeper, slightly
+  desaturated cobalt in the same blue family; integrated purely at these six primitives, so every
+  semantic accent token + component + pattern re-resolved in both themes with zero structural change.
+  (Prior accent was `#2563EB` = Tailwind blue-600.) Documented on `01 · Foundation · v3` /
+  `02 · Tokens · v3`; chosen via the `accent-lab.pen` v1–v6 funnel.
 - Neutrals: `neutral-0` `#FFFFFF`, `-50` `#F8FAFC`, `-200` `#E2E8F0`, `-300` `#CBD5E1`,
   `-400` `#94A3B8`, `-500` `#64748B`, `-600` `#475569`, `-700` `#334155`, `-800` `#1E293B`,
   `-900` `#0F172A`
@@ -172,12 +258,20 @@ token beneath re-resolves; components and patterns need zero overrides. Light is
 resolution. Full mode map, accessibility audit (WCAG AA verified) and contributor rules live on
 board `06 · Themes`.
 
-### Type & spacing
+### Type, spacing, radius & motion
 - Fonts: `font-sans` = **Inter**, `font-mono` = **JetBrains Mono**.
-- Type scale (px): Display XL 72 / L 64 / M 56 · H1 48 · H2 40 · H3 32 · H4 24 · H5 20 ·
-  Body L 18 / M 16 / S 14 · Caption 12. Weights 400/500/600/700. Hierarchy comes from size &
-  weight, **never color**.
+- Type scale: now tokenized as **`font-size-*`** (v3.1) — Display XL 72 / L 64 / M 56 · H1 48 ·
+  H2 40 · H3 32 · H4 24 · H5 20 · Body L 18 / M 16 / S 14 · Caption 12. Weights 400/500/600/700.
+  Hierarchy comes from size & weight, **never color**.
 - Spacing (8-pt): `space-0..space-12` = 0, 4, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96, 128.
+- **Breakpoints** (v3.1, non-themed): `breakpoint-sm` 640 · `-md` 768 · `-lg` 1024 · `-xl` 1280.
+- **Icon sizes** (v3.1, non-themed): `icon-sm` 16 · `icon-md` 20 · `icon-lg` 24 (set literal px;
+  icon size can't bind a variable).
+- **Radius** (v3, non-themed): `radius-sm` 8 · `radius-md` 12 · `radius-lg` 16 · `radius-pill`
+  999. Components consume these, never raw corner values.
+- **Motion** (v3, non-themed; defined for code, not animated on the boards): `duration-fast` 120 ·
+  `duration-base` 200 · `duration-slow` 320 (ms); `ease-standard` `cubic-bezier(0.2,0,0,1)` ·
+  `ease-emphasized` `cubic-bezier(0.3,0,0,1)`.
 - Elevation (subtle, executive): Elevation 0 flat / 1 raised (`y1·3px·8%`) / 2 hover
   (`y4·12px·12%`) / 3 overlay (`y12·24px·16%`). Shadows are layered outer `#0F172A` with low alpha.
 
@@ -267,6 +361,14 @@ timeline must override `strokeWidth:0` so the line doesn't dangle.
   `batch_get(resolveVariables:true)` on a light-context node.
 - `batch_design` globals (assignment without `const`/`let`) may NOT persist across calls —
   capture the returned IDs and hardcode them in the next call.
+- **Icon size won't bind a variable:** setting `width`/`height` to `"$icon-md"` on an `icon`
+  node silently coerces to **0** (unlike `fill`, which binds fine). Set literal px equal to the
+  token value instead.
+- **Fresh top-level board snapshot lag:** a brand-new top-level board can report its first child
+  at `y:50` and its `fit_content` height ~50px short, so `snapshot_layout(problemsOnly)` flags
+  the last section "partially clipped" even though the node tree is correct (no stray `x`/`y`).
+  Toggling placeholder/clip/Move doesn't clear it in-session; it recomputes correctly on
+  Save/reopen. Confirm the node tree via `batch_get` and compare against a settled sibling board.
 
 ---
 
@@ -283,24 +385,23 @@ timeline must override `strokeWidth:0` so the line doesn't dangle.
 
 ## 11. Where to go next
 
-**v2.0 is done** — the parallel Foundation/Tokens/Components/Patterns boards, the
-`05 · Design Review & Changelog` board, and the `06 · Documentation · v2` governance board
-(`NnWw8` — Principles, Accessibility, Naming Conventions, Theme Architecture, Component
-Standards, AI Contribution Rules, Governance & Known Gaps), all within the existing DNA, with
-v1.1 frozen for comparison and dual-theme carried through. **Backlog is now recorded on board
-06's "Governance & Known Gaps" section** — read it before starting the next layer. Likely next
-steps:
-- A **`07` board** (motion, responsive/mobile specs, or iconography — the one layer v2 didn't
-  add). Board 06 flags the specific token gaps to close first: a **radius scale**
-  (`radius-sm/-md/-lg/-pill`, replacing raw `10/12/999`), **type-scale tokens**
-  (`font-size-*`), **motion** (duration + easing), and **breakpoint** tokens, **or**
-- **Implement capanema.io in code** from the **v2** blueprints (board `04 · Patterns · v2`,
-  `M7VtG`). Default stack assumption:
-  Next.js (App Router) on Vercel, Inter + JetBrains Mono, Tailwind with the tokens above mapped
-  to CSS variables. Use `get_variables` to export the exact token values (both Mode resolutions),
-  follow the page blueprints in board 04 for section order and content guidelines for copy, and
-  implement theming per the v1 file's `06 · Themes` board §08 (mO19J): CSS variables + `[data-theme]` + `prefers-color-scheme`
-  fallback, choice persisted in `localStorage`, applied by an inline head script before first paint.
+**v3.1 is done** — `design-system-v3.1.pen` holds the full system: the accent is now
+**structural** (reserved + textured via the Eyebrow master), and the type-scale (`font-size-*`),
+breakpoint (`breakpoint-*`), icon (`icon-*`), and motion-choreography gaps are closed. Boards
+01–08 are re-versioned to v3.1, the Design Review is refreshed, the Changelog and Comparison are
+extended, and iconography is folded into Foundation (`## 08`) + a Tokens Icon table. v3.0, v2.0, v1.1 are frozen for
+comparison; dual-theme carries through. **Backlog lives on board `06 · Documentation · v3.1`'s
+"Governance & Known Gaps" section** (type-scale + breakpoint + icon now RESOLVED). Likely next steps:
+- **Implement capanema.io in code** from the **v3.1** blueprints (board `04 · Patterns · v3.1`,
+  `M7VtG`) — this is now the highest-leverage move (no token gaps remain). Default stack
+  assumption: Next.js (App Router) on Vercel, Inter + JetBrains Mono, Tailwind with the tokens
+  above mapped to CSS variables. Use `get_variables` to export the exact token values (both Mode
+  resolutions), follow the page blueprints in board 04 for section order and content guidelines
+  for copy, and implement theming per the v1 file's `06 · Themes` board §08 (mO19J): CSS
+  variables + `[data-theme]` + `prefers-color-scheme` fallback, choice persisted in
+  `localStorage`, applied by an inline head script before first paint.
+- **Validate the remaining Open Risks** (board `05 · Design Review · v3.1`): the reduced-frequency
+  accent and illustration policy on real content, and motion timing once built.
 
-Persistent project notes also live in the Claude memory file
-`pencil-ds-foundation.md` (board IDs, master IDs, gotchas) — keep both in sync.
+Persistent project notes also live in the Claude memory file `design-system-v3.1-file.md`
+(v3.1 file, boards, tokens, gotchas) — keep CLAUDE.md and memory in sync.
