@@ -1,52 +1,163 @@
 # Capanema Design System
 
-Source files, version history, and documentation for the **Capanema Design System** — the
-design system behind [capanema.io](https://capanema.io), a personal executive portfolio and
-publishing platform for an engineering leader (case studies, leadership writing, resume,
-achievements).
+Source files, version history, and documentation for the **Capanema Design System** — the design system behind **capanema.io**, a personal executive portfolio and publishing platform.
 
-The design language is inspired by the clarity of **Linear**, the craftsmanship of **Stripe**,
-and the restraint of **Vercel**: typography-first, near-monochrome slate with a single cobalt
-accent, spacious, content-first, and built to read like a premium annual report rather than a
-marketing site.
+The system is designed around two primary goals:
+
+1. **Publishing high-quality long-form content** such as engineering leadership articles, technical essays, and in-depth case studies.
+2. **Presenting an executive career narrative** through timelines, achievements, business outcomes, leadership impact, and measurable results.
+
+Rather than behaving like a traditional personal website or marketing site, capanema.io is intended to read like a premium publication or annual report: calm, information-dense, highly readable, and optimized for thoughtful consumption of content.
+
+The design language is inspired by the clarity of Linear, the craftsmanship of Stripe, and the restraint of Vercel: typography-first, near-monochrome slate with a single cobalt accent, spacious layouts, strong hierarchy, and content-first presentation.
+
+The design system places special emphasis on:
+
+- Long-form reading experience and reading comfort
+- Information hierarchy and editorial typography
+- Case-study storytelling and business outcomes
+- Career timeline visualization
+- Executive credibility through metrics, achievements, and highlights
+- Consistent visual language across content, portfolio, and professional narrative
+
+---
+
+## Design Principles
+
+The system is guided by a small set of principles that influence every design decision.
+
+### 1. Content Over Decoration
+
+Visual design exists to support comprehension, not compete for attention. Every element should contribute to understanding the content.
+
+### 2. Reading Before Interaction
+
+Reading is the primary activity. Typography, spacing, hierarchy, and pacing take precedence over interactive novelty.
+
+### 3. Evidence Over Claims
+
+Impact should be demonstrated through outcomes, metrics, case studies, and artifacts rather than marketing language.
+
+### 4. Consistency Through Systems
+
+Reusable tokens, components, and patterns create coherence across pages and future iterations.
+
+### 5. Calm Visual Hierarchy
+
+The interface should feel confident and restrained. Emphasis is earned through structure and contrast, not visual noise.
+
+---
+
+## Scope
+
+The Capanema Design System is optimized for:
+
+- Long-form editorial content
+- Executive portfolios
+- Engineering leadership writing
+- Professional storytelling
+- Career timelines
+- Business and technology case studies
+- Outcome and metric-driven narratives
+
+It is not intended for:
+
+- Consumer SaaS applications
+- E-commerce experiences
+- Marketing-heavy landing pages
+- Growth-oriented conversion funnels
+- Dashboard-centric products
+- Enterprise application interfaces
+
+The system prioritizes clarity, credibility, and depth over engagement mechanics or marketing patterns.
+
+---
+
+## Why a Separate Design System?
+
+The design system is maintained independently from capanema.io to:
+
+- Preserve design history across versions
+- Allow experimentation without affecting implementation
+- Document design decisions and rationale
+- Create a reusable foundation for future publishing projects
+- Establish a durable source of truth independent of any implementation technology
+
+Separating design from implementation makes the evolution of the system visible, auditable, and easier to reason about over time.
+
+---
+
+## Architecture
+
+The system is organized as a layered hierarchy:
+
+```text
+Design Principles
+        ↓
+Foundation
+        ↓
+Design Tokens
+        ↓
+Components
+        ↓
+Patterns
+        ↓
+Content Systems
+        ↓
+Portfolio & Publishing Experience
+```
+
+This structure ensures that visual decisions originate from principles and flow consistently through increasingly concrete layers of the system.
+
+---
 
 ## Documentation
 
+New here?
+
+Start with this README for project context and philosophy, then continue to `DESIGN.md` for the complete design system specification.
+
 | File | Audience | Contents |
 |------|----------|----------|
-| [`DESIGN.md`](./DESIGN.md) | Anyone | The design system itself — design language, four-layer architecture, full token reference, component inventory, pattern conventions, version history |
-| [`CLAUDE.md`](./CLAUDE.md) | Agents / contributors editing the `.pen` source | How to work in Pencil — MCP access rules, board & component IDs, house style, gotchas, verification |
+| [`DESIGN.md`](./DESIGN.md) | Anyone | Complete design system specification, architecture, principles, token reference, component inventory, patterns, conventions, and version history |
+| [`CLAUDE.md`](./CLAUDE.md) | Agents and contributors editing the `.pen` source | Pencil workflow, MCP access rules, board and component IDs, editing guidelines, verification procedures, and contributor instructions |
+
+---
 
 ## Files
 
-The system is authored in **Pencil** (the `.pen` design tool). Each version is frozen in its
-own file for clean comparison. **`.pen` files are encrypted** and can only be opened with Pencil.
+The design system is authored in **Pencil** (https://www.pencil.dev/), which serves as the canonical source of truth for the project.
 
-| File | Status | Contents |
-|------|--------|----------|
-| `design-system-v3.1.pen` | **Current** | v3.1 — structural Cobalt accent + texture; `font-size-*` / `breakpoint-*` / `icon-*` tokens; motion choreography; iconography |
-| `design-system-v3.pen` | Frozen | v3.0 — Cobalt Deep accent (color only) + radius & motion tokens |
-| `design-system-v2.pen` | Frozen | v2.0 — publication-grade type, long-form reading layer, status + prose tokens |
-| `design-system-v1.pen` | Frozen | v1.1 — original Foundation / Tokens / Components / Patterns / Themes |
-| `accent-lab.pen` | Reference | The v1–v6 accent exploration funnel that chose Cobalt Deep |
+All design work, exploration, and version history are maintained as `.pen` files. These files should be opened through Pencil for inspection, editing, comparison, and reference.
 
-The retired combined `design-system.pen` remains in git history at commit `a7a241a`.
+Each major version is preserved in its own file to maintain a complete historical record of the system's evolution.
 
-## Repository layout
+| File | Contents |
+|--------|----------|
+| `design-system-v3.1.pen` | Current version — structural Cobalt accent, texture system, typography refinements, motion choreography, iconography, and expanded token set |
+| `design-system-v3.pen` | Cobalt Deep accent introduction, radius system, and motion tokens |
+| `design-system-v2.pen` | Publication-grade typography, long-form reading layer, status system, and prose tokens |
+| `design-system-v1.pen` | Original Foundation → Tokens → Components → Patterns → Themes architecture |
+| `accent-lab.pen` | Accent exploration workspace documenting the progression from v1–v6 concepts and the selection of Cobalt Deep |
 
-```
-design-system-*.pen          # versioned design source (open in Pencil)
-accent-lab.pen               # accent exploration
-DESIGN.md                    # the design system documentation
-CLAUDE.md                    # agent / contributor guide for editing in Pencil
-docs/superpowers/
-  specs/                     # design specs per version
-  plans/                     # implementation plans
-  audits/                    # audit findings
-```
+The retired combined `design-system.pen` remains available in git history at commit `a7a241a`.
 
-## Status
+---
 
-**v3.1 is feature-complete at the design-tool layer.** The next step is to implement
-capanema.io in code from the v3.1 blueprints (Next.js + Tailwind assumed). See
-[`DESIGN.md` §7](./DESIGN.md) for the roadmap.
+## Versioning Philosophy
+
+Major design iterations are preserved as immutable snapshots.
+
+Rather than continuously overwriting a single design file, each version captures the state of the system at a specific point in its evolution. This approach makes design decisions traceable, comparisons straightforward, and historical context easy to preserve.
+
+The repository should be understood as both the current design system and the historical record of how it evolved.
+
+---
+
+## Relationship to Implementation
+
+This repository defines the design language, structure, and behavior of the system, but it intentionally remains independent from implementation details.
+
+Frameworks, rendering technologies, and deployment choices may evolve over time. The design system should remain stable and portable across those changes.
+
+The `.pen` files are therefore considered the authoritative source, while any code implementation is an interpretation of the design system at a particular point in time.
