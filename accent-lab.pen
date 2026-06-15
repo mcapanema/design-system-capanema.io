@@ -41077,7 +41077,8 @@
                           "width": "fill_container",
                           "content": "Accent text / links",
                           "fontFamily": "Inter",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -41100,7 +41101,8 @@
                           "width": "fill_container",
                           "content": "#2150B8 on white",
                           "fontFamily": "Inter",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -41147,7 +41149,8 @@
                           "width": "fill_container",
                           "content": "AAA",
                           "fontFamily": "Inter",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     }
@@ -41183,7 +41186,8 @@
                           "width": "fill_container",
                           "content": "Primary CTA label",
                           "fontFamily": "Inter",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -41206,7 +41210,8 @@
                           "width": "fill_container",
                           "content": "white on #2150B8",
                           "fontFamily": "Inter",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -41253,7 +41258,8 @@
                           "width": "fill_container",
                           "content": "AAA  (was 5.2:1)",
                           "fontFamily": "Inter",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     }
@@ -41289,7 +41295,8 @@
                           "width": "fill_container",
                           "content": "Accent hover",
                           "fontFamily": "Inter",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -41312,7 +41319,8 @@
                           "width": "fill_container",
                           "content": "#1A4097 on white",
                           "fontFamily": "Inter",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -41359,7 +41367,8 @@
                           "width": "fill_container",
                           "content": "AAA",
                           "fontFamily": "Inter",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     }
@@ -41395,7 +41404,8 @@
                           "width": "fill_container",
                           "content": "Accent on surface-secondary",
                           "fontFamily": "Inter",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -41418,7 +41428,8 @@
                           "width": "fill_container",
                           "content": "#2150B8 on #F8FAFC",
                           "fontFamily": "Inter",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -41465,7 +41476,8 @@
                           "width": "fill_container",
                           "content": "AAA",
                           "fontFamily": "Inter",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     }
@@ -41501,7 +41513,8 @@
                           "width": "fill_container",
                           "content": "Dark links / eyebrows",
                           "fontFamily": "Inter",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -41524,7 +41537,8 @@
                           "width": "fill_container",
                           "content": "#6E96E2 on #0B1020",
                           "fontFamily": "Inter",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -41571,7 +41585,8 @@
                           "width": "fill_container",
                           "content": "AA+",
                           "fontFamily": "Inter",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     }
@@ -41607,7 +41622,8 @@
                           "width": "fill_container",
                           "content": "Dark CTA label",
                           "fontFamily": "Inter",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -41630,7 +41646,8 @@
                           "width": "fill_container",
                           "content": "white on #2150B8",
                           "fontFamily": "Inter",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -41677,7 +41694,8 @@
                           "width": "fill_container",
                           "content": "AAA",
                           "fontFamily": "Inter",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     }
@@ -41713,7 +41731,8 @@
                           "width": "fill_container",
                           "content": "Focus ring (non-text)",
                           "fontFamily": "Inter",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -41736,7 +41755,8 @@
                           "width": "fill_container",
                           "content": "#2150B8 / #3F6BD0",
                           "fontFamily": "Inter",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     },
@@ -41783,7 +41803,8 @@
                           "width": "fill_container",
                           "content": "Pass",
                           "fontFamily": "Inter",
-                          "fontSize": 13.5
+                          "fontSize": 13.5,
+                          "fontWeight": "normal"
                         }
                       ]
                     }
