@@ -153,12 +153,6 @@ Rather than continuously overwriting a single design file, each version captures
 
 The repository should be understood as both the current design system and the historical record of how it evolved.
 
-- **v3.1** — Makes the accent structural and closes the remaining token gaps:
-  - (a) Structural accent — accent reserved for eyebrows, CTAs, links, and active nav; categories/tags neutralized to ink; metrics/outcomes rendered as ink; plus two textures (an eyebrow accent bar and a section tick) via a new reusable Eyebrow master.
-  - (b) Closed token gaps — font-size-* (the 12-step type scale, consumed by all 16 masters), breakpoint-* (responsive contract), icon-* (size tokens), and a motion-choreography spec. Iconography was folded into the Foundation board as a new section (plus an Icon token table). No type/spacing values, layouts, or component inventory changed; the dual-theme carries through with zero overrides.
-
-- **v3.2** — Updated sans-serif font from Inter to Red Hat Display. Includes systematic optical calibration: letter-spacing tokens added for the display/heading scale, body text weight bumped to 500 across the type system and all 10 component masters that carry body/small text, and documentation updated throughout. JetBrains Mono unchanged. The accent, layout, and component inventory are unchanged from v3.1.
-
 ---
 
 ## Relationship to Implementation
