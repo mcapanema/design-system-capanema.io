@@ -9,3 +9,6 @@
 
 # Ignore .agents
 .agents/rules/claude-mem-context.md
+
+# Superpowers Skill Plans
+docs/superpowers/*

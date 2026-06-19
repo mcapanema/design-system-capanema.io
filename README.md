@@ -134,7 +134,8 @@ Each major version is preserved in its own file to maintain a complete historica
 
 | File | Contents |
 |--------|----------|
-| `design-system-v3.1.pen` | Current version — structural Cobalt accent, texture system, typography refinements, motion choreography, iconography, and expanded token set |
+| `design-system-v3.2.pen` | Current version — structural Cobalt accent, texture system, typography refinements (Red Hat Display), motion choreography, iconography, and expanded token set |
+| `design-system-v3.1.pen` | Previous version — structural Cobalt accent, texture system, typography refinements, motion choreography, iconography, and expanded token set |
 | `design-system-v3.pen` | Cobalt Deep accent introduction, radius system, and motion tokens |
 | `design-system-v2.pen` | Publication-grade typography, long-form reading layer, status system, and prose tokens |
 | `design-system-v1.pen` | Original Foundation → Tokens → Components → Patterns → Themes architecture |
