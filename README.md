@@ -135,6 +135,7 @@ Each major version is preserved in its own file to maintain a complete historica
 | File | Contents |
 |--------|----------|
 | `design-system-v3.2.pen` | Current version — structural Cobalt accent, texture system, typography refinements (Red Hat Display), motion choreography, iconography, and expanded token set |
+| `design-system-v3.1.pen` | Previous version — structural Cobalt accent, texture system, typography refinements, motion choreography, iconography, and expanded token set |
 | `design-system-v3.pen` | Cobalt Deep accent introduction, radius system, and motion tokens |
 | `design-system-v2.pen` | Publication-grade typography, long-form reading layer, status system, and prose tokens |
 | `design-system-v1.pen` | Original Foundation → Tokens → Components → Patterns → Themes architecture |
@@ -152,7 +153,11 @@ Rather than continuously overwriting a single design file, each version captures
 
 The repository should be understood as both the current design system and the historical record of how it evolved.
 
-- **v3.2** — Updated sans-serif font from Inter to Red Hat Display for improved modern typography and enhanced readability while maintaining the executive aesthetic. The monospaced font (JetBrains Mono) remains unchanged. All components automatically adapt through the font-sans token with zero structural changes needed.
+- **v3.1** — Makes the accent structural and closes the remaining token gaps:
+  - (a) Structural accent — accent reserved for eyebrows, CTAs, links, and active nav; categories/tags neutralized to ink; metrics/outcomes rendered as ink; plus two textures (an eyebrow accent bar and a section tick) via a new reusable Eyebrow master.
+  - (b) Closed token gaps — font-size-* (the 12-step type scale, consumed by all 16 masters), breakpoint-* (responsive contract), icon-* (size tokens), and a motion-choreography spec. Iconography was folded into the Foundation board as a new section (plus an Icon token table). No type/spacing values, layouts, or component inventory changed; the dual-theme carries through with zero overrides.
+
+- **v3.2** — Updated sans-serif font from Inter to Red Hat Display. Includes systematic optical calibration: letter-spacing tokens added for the display/heading scale, body text weight bumped to 500 across the type system and all 10 component masters that carry body/small text, and documentation updated throughout. JetBrains Mono unchanged. The accent, layout, and component inventory are unchanged from v3.1.
 
 ---
 
