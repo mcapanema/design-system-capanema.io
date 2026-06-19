@@ -116,7 +116,7 @@ anything new, consume the semantic tokens, not the raw Foundation primitives.**
 
 ### Type, spacing, radius, motion, breakpoints, icons
 
-- **Fonts:** `font-sans` = **Inter**, `font-mono` = **JetBrains Mono**.
+- **Fonts:** `font-sans` = **Red Hat Display**, `font-mono` = **JetBrains Mono**.
 - **Type scale — `font-size-*` (v3.1, 12 steps, non-themed):** `-display-xl` 72 · `-display-l`
   64 · `-display-m` 56 · `-h1` 48 · `-h2` 40 · `-h3` 32 · `-h4` 24 · `-h5` 20 · `-body-l` 18 ·
   `-body-m` 16 · `-body-s` 14 · `-caption` 12. Weights 400/500/600/700. (A handful of 15/13/11px
@@ -192,14 +192,16 @@ The system is versioned as separate `.pen` files so each release is frozen for c
   (replacing Tailwind blue, decided via the `accent-lab.pen` funnel), plus a **radius** scale
   and **motion** token set. v3.0 swapped the accent **color only**.
 - **v3.1 (current)** — makes the accent **structural** and closes the remaining token gaps:
-  - **(a) Structural accent** — accent reserved for eyebrows, CTAs, links, and active nav;
-    categories/tags neutralized to ink; metrics/outcomes rendered as ink; plus two textures
-    (an eyebrow accent bar and a section tick) via a new reusable **Eyebrow** master.
-  - **(b) Closed token gaps** — `font-size-*` (the 12-step type scale, consumed by all 16
-    masters), `breakpoint-*` (responsive contract), `icon-*` (size tokens), and a
-    **motion-choreography** spec. Iconography was folded into the Foundation board as a new
-    section (plus an Icon token table). No type/spacing values, layouts, or component inventory
-    changed; the dual-theme carries through with zero overrides.
+- **(a) Structural accent** — accent reserved for eyebrows, CTAs, links, and active nav;
+categories/tags neutralized to ink; metrics/outcomes rendered as ink; plus two textures
+(an eyebrow accent bar and a section tick) via a new reusable **Eyebrow** master.
+- **(b) Closed token gaps** — `font-size-*` (the 12-step type scale, consumed by all 16
+masters), `breakpoint-*` (responsive contract), `icon-*` (size tokens), and a
+**motion-choreography** spec. Iconography was folded into the Foundation board as a new
+section (plus an Icon token table). No type/spacing values, layouts, or component inventory
+changed; the dual-theme carries through with zero overrides.
+
+- **v3.2** — updated the sans-serif font from Inter to Red Hat Display for improved modern typography and enhanced readability while maintaining the executive aesthetic. The monospaced font (JetBrains Mono) remains unchanged. All components automatically adapt through the font-sans token with zero structural changes needed.
 
 ---
 

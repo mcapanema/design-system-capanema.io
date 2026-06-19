@@ -134,7 +134,7 @@ Each major version is preserved in its own file to maintain a complete historica
 
 | File | Contents |
 |--------|----------|
-| `design-system-v3.1.pen` | Current version — structural Cobalt accent, texture system, typography refinements, motion choreography, iconography, and expanded token set |
+| `design-system-v3.2.pen` | Current version — structural Cobalt accent, texture system, typography refinements (Red Hat Display), motion choreography, iconography, and expanded token set |
 | `design-system-v3.pen` | Cobalt Deep accent introduction, radius system, and motion tokens |
 | `design-system-v2.pen` | Publication-grade typography, long-form reading layer, status system, and prose tokens |
 | `design-system-v1.pen` | Original Foundation → Tokens → Components → Patterns → Themes architecture |
@@ -151,6 +151,8 @@ Major design iterations are preserved as immutable snapshots.
 Rather than continuously overwriting a single design file, each version captures the state of the system at a specific point in its evolution. This approach makes design decisions traceable, comparisons straightforward, and historical context easy to preserve.
 
 The repository should be understood as both the current design system and the historical record of how it evolved.
+
+- **v3.2** — Updated sans-serif font from Inter to Red Hat Display for improved modern typography and enhanced readability while maintaining the executive aesthetic. The monospaced font (JetBrains Mono) remains unchanged. All components automatically adapt through the font-sans token with zero structural changes needed.
 
 ---
 

@@ -10,9 +10,9 @@ before touching a `.pen` file or generating site code.
 > access the `.pen` source, the board & component IDs to edit it, the house style, the gotchas,
 > and how to verify work.
 
-**Current version: v3.1** (`design-system-v3.1.pen`). v3.0, v2.0, and v1.1 are frozen in
+**Current version: v3.2** (`design-system-v3.2.pen`). v3.1, v3.0, v2.0, and v1.1 are frozen in
 separate files for comparison (see §1). **Next work: implement capanema.io in code from the
-v3.1 blueprints** (board `04 · Patterns · v3.1`, `M7VtG`).
+v3.2 blueprints** (board `04 · Patterns · v3.2`, `M7VtG`).
 
 > **Persistence note:** Pencil MCP edits a **live in-editor document**; changes are not written
 > to the `.pen` on disk until the file is **saved in Pencil**, and the MCP only ever sees the
@@ -238,14 +238,14 @@ for what shipped). Boards 01–08 are re-versioned to v3.1; v3.0, v2.0, v1.1 are
 comparison. **Backlog lives on board `06 · Documentation · v3.1`'s "Governance & Known Gaps"
 section** (type-scale + breakpoint + icon now RESOLVED). Likely next steps:
 
-- **Implement capanema.io in code** from the **v3.1** blueprints (board `04 · Patterns · v3.1`,
-  `M7VtG`) — the highest-leverage move (no token gaps remain). Default stack: Next.js (App
-  Router) on Vercel, Inter + JetBrains Mono, Tailwind with the tokens mapped to CSS variables.
-  Use `get_variables` to export the exact token values (both Mode resolutions), follow the page
-  blueprints in board 04 for section order and the content rule for copy, and implement theming
-  per the v1 file's `06 · Themes` board §08 (`mO19J`): CSS variables + `[data-theme]` +
-  `prefers-color-scheme` fallback, choice persisted in `localStorage`, applied by an inline head
-  script before first paint.
+- **Implement capanema.io in code** from the **v3.2** blueprints (board `04 · Patterns · v3.2`,
+`M7VtG`) — the highest-leverage move (no token gaps remain). Default stack: Next.js (App
+Router) on Vercel, Red Hat Display + JetBrains Mono, Tailwind with the tokens mapped to CSS variables.
+Use `get_variables` to export the exact token values (both Mode resolutions), follow the page
+blueprints in board 04 for section order and the content rule for copy, and implement theming
+per the v1 file's `06 · Themes` board §08 (`mO19J`): CSS variables + `[data-theme]` +
+`prefers-color-scheme` fallback, choice persisted in `localStorage`, applied by an inline head
+script before first paint.
 - **Validate the remaining Open Risks** (board `05 · Design Review · v3.1`): the
   reduced-frequency accent and illustration policy on real content, and motion timing once built.
 
