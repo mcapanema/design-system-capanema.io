@@ -36061,7 +36061,8 @@
                           "content": "I help organizations build the infrastructure for sustainable growth — strategy, systems, and the people to run them.",
                           "lineHeight": 1.6,
                           "fontFamily": "$font-sans",
-                          "fontSize": 14
+                          "fontSize": 14,
+                          "fontWeight": "500"
                         }
                       ]
                     },
@@ -36493,7 +36494,7 @@
                       "fill": "$text-secondary",
                       "textGrowth": "fixed-width",
                       "width": "fill_container",
-                      "content": "Unchanged — scores held; font migration noted",
+                      "content": "Scores held at 5.0; executive summary updated; Open Risk added for Red Hat Display at 12px (display-optimized font, softer at caption size — documented tradeoff)",
                       "lineHeight": 1.5,
                       "fontFamily": "$font-sans",
                       "fontSize": 14,
@@ -36672,7 +36673,7 @@
                   "fill": "$text-secondary",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "v3.2 is a focused font migration — no structural changes, no new tokens or components. The 11-dimension scorecard held at 5.0 across every dimension.",
+                  "content": "v3.2 transitions to Red Hat Display with systematic optical calibration — 4 new letter-spacing tokens added, body text weight tuned to 500 across the type scale and 10 component masters, and documentation updated throughout. The 11-dimension scorecard held at 5.0 across every dimension.",
                   "lineHeight": 1.6,
                   "fontFamily": "$font-sans",
                   "fontSize": 17,
